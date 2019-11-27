@@ -1,0 +1,18 @@
+#login-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#login-form {
+    text-align: center;
+}
+
+#loginSubmit {
+    width: 30%;
+    margin-top: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
