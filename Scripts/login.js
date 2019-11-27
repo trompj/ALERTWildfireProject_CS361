@@ -26,6 +26,7 @@ function login() {
     loginAuthenticate(username, password);
 }
 
+//POST username/password to server for authentication.
 function loginAuthenticate(username, password) {
     authenticated = false;
 
@@ -45,7 +46,11 @@ function loginAuthenticate(username, password) {
 
         event.preventDefault();
 
+        //If username/password combination is authenticated
         if (authenticated) {
+            //User is succesfully authenticated, set session state.
+            sessionStorage.setItem("AuthenticationState", "Authenticated");
+
             authenticatedPage();
         }
         else {
@@ -56,14 +61,22 @@ function loginAuthenticate(username, password) {
     findUser.send(body);
 }
 
+//Move to login page
 function notAuthenticatedPage() {
     window.location = "login.html";
 }
 
+//Move to homepage
 function authenticatedPage() {
     window.location.href = "home.html";
 }
 
 function addCurrentUser(user, pass, typeVal) {
     currentUser.push({username: user, password: pass, type: typeVal})
+}
+
+function authenticateSession() {
+    if (sessionStorage.getItem('AuthenticationState') === null) {
+        notAuthenticatedPage();
+    }
 }
