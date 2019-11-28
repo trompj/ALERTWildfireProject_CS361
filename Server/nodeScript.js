@@ -1,12 +1,19 @@
 let express = require('express');
 let morgan = require('morgan');
 let cors = require('cors');
+let uuid = require('uuid/v4');
+let session = require('express-session');
+const bodyParser = require('body-parser');
+let FileStore = require('session-file-store')(session);
+let passport = require('passport');
+let LocalStrategy = require('passport-local').Strategy;
+let axios = require('axios');
+let handlebars = require('express-handlebars').create({defaultLayout:'home'});
+
 
 let application = express();
 application.use(morgan('combined'));
 
-let handlebars = require('express-handlebars').create({defaultLayout:'home'});
-let bodyParser = require('body-parser');
 
 application.use(bodyParser.urlencoded({ extended: false }));
 application.use(bodyParser.json());
@@ -43,15 +50,30 @@ application.post('/login', function(request, response, next) {
             return;
         }
 
+        let rowId = null;
         for (let row in rows) {
-            if (rows[row].username === username) {
-                if (rows[row].password === password) {
+            if (rows[row].username === username && rows[row].password === password) {
                     authenticated = true;
-                }
+
+                    rowId = rows[row].id;
             }
         }
 
         if (authenticated) {
+            let tokenVal = uuid();
+
+            pool.query("SELECT * FROM users WHERE id=?", [rowId], function(error, result) {
+
+                pool.query("UPDATE users SET token=? WHERE id=? ",
+                    [tokenVal, rowId],
+                    function(error, result){
+
+                    });
+
+            });
+
+            response.cookie("Access_Token", tokenVal);
+
             response.sendStatus(200);
         }
         else {
