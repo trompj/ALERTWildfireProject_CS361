@@ -28,9 +28,9 @@ let mysql = require('mysql');
 let pool = mysql.createPool({
    connectionLimit: 10,
     host            : 'classmysql.engr.oregonstate.edu',
-    user            : 'cs290_trompj',
+    user            : 'cs340_trompj',
     password        : '0613',
-    database        : 'cs290_trompj'
+    database        : 'cs340_trompj'
 });
 
 application.post('/login', function(request, response, next) {
