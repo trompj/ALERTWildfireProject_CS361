@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALERTWildfire System</title>
+    <title>Marine Mammal Stranding System</title>
     <script src="https://kit.fontawesome.com/a88b731ad6.js" crossorigin="anonymous"></script>
     <script src="Scripts/login.js"></script>
     <link rel="stylesheet" href="Styles/style.css" type="text/css">
@@ -14,12 +14,48 @@
     <div id="right-header">
         <nav id="menu">
             <a href="home.html">Home</a>
-            <a href="map.html">Map</a>
+            <a href="Pages/map.html">Map</a>
             <a href="report.html" style="color: dodgerblue">Report Stranding</a>
             <a>Logout</a>
         </nav>
     </div>
 </header>
 
+<div class="wrap-container">
+    <div id="reporting-container">
+        <form id="reporting-form">
+            <fieldset>
+                <h4 style="text-align: center">New Mammal Stranding Reporting Form</h4>
+                <br>
+                <label for="city">City:</label>
+                <input type="text" name="city" id="city" placeholder="e.g. Seattle">
+                <label class="longitude" for="longitude">Longitude:</label>
+                <input type="text" class="longitude" name="longitude" id="longitude" placeholder="e.g. 55.8">
+                <br>
+                <label for="state">State:</label>
+                <input type="text" name="state" id="state" placeholder="e.g. Washington">
+                <label class="latitude" for="latitude">Latitude:</label>
+                <input type="text" name="latitude" class="latitude" id="latitude" placeholder="e.g. 127.8">
+                <br>
+                <label for="county">County:</label>
+                <input type="text" name="county" id="county" placeholder="e.g. Snohomish">
+                <button id="get-location" style="width: 20%; color: white; border-radius: 5px; background-color: dodgerblue">Get Location</button>
+                <br>
+                <input type="checkbox" name="alive" id="alive" value="1">
+                <label for="alive">The animal is alive</label><br>
+                <br>
+                <label>Any additional notes on the mammal you found?</label>
+                <textarea name="strandingNotes" id="strandingNotes" placeholder="Appears to be a harbor seal."></textarea>
+                <br>
+                <label>Any additional notes on the location to help us find it?</label>
+                <textarea name="locationNotes" id="locationNotes" placeholder="Located at Clayton beach near mile marker 15"></textarea>
+                <br>
+                <input type="submit" id="strandingSubmit" style="width: 20%; color: white; border-radius: 5px; background-color: dodgerblue; margin-left: 40%">
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<script src="Scripts/strandingReport.js"></script>
 </body>
 </html>

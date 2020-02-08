@@ -95,4 +95,61 @@ nav a:hover {
     color: grey;
 }
 
+/*#reporting-container {*/
+    /*width: 650px;*/
+    /*height: 400px;*/
+/*}*/
+
+/*#reporting-form {*/
+    /*width: 650px;*/
+    /*height: 400px;*/
+/*}*/
+
+/*html {*/
+    /*height: 100%;*/
+/*}*/
+
+#locationNotes, #strandingNotes {
+    width: 80%
+}
+
+#city, #state, #county {
+    width: 45%
+}
+
+div.wrap-container {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+#reporting-form {
+    width: 100%;
+}
+
+#report-button {
+    width: 20%;
+    height: 25px;
+    border-radius: 8px;
+    color: white;
+    background-color: dodgerblue;
+    margin-left: 40%;
+    font-weight: bold;
+}
+
+input, textarea {
+    border: 1px solid black;
+}
+
+#latitude, #longitude {
+    width: 8%;
+}
+
+.latitude, .longitude {
+    position: inherit;
+}
+
 /*Map formatting*/

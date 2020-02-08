@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALERTWildfire System</title>
+    <title>Marine Mammal Stranding System</title>
     <script src="https://kit.fontawesome.com/a88b731ad6.js" crossorigin="anonymous"></script>
-    <script src="Scripts/login.js"></script>
-    <link rel="stylesheet" href="Styles/style.css" type="text/css">
+    <script src="../Scripts/login.js"></script>
+    <link rel="stylesheet" href="../Styles/style.css" type="text/css">
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css' rel='stylesheet' />
 </head>
@@ -15,9 +15,9 @@
 <header id="headerBar">
     <div id="right-header">
         <nav id="menu">
-            <a href="home.html">Home</a>
+            <a href="../home.html">Home</a>
             <a href="map.html" style="color: dodgerblue">Map</a>
-            <a href="report.html">Report Stranding</a>
+            <a href="../report.html">Report Stranding</a>
             <a>Logout</a>
         </nav>
     </div>
@@ -32,18 +32,26 @@
     });
 
     // Add geolocate control to the map.
-    map.addControl(
-        new mapboxgl.GeolocateControl({
-            positionOptions: {
-                enableHighAccuracy: true
-            },
-            trackUserLocation: true
-        })
-    );
+    const geolocate = new mapboxgl.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true
+        },
+        trackUserLocation: true
+    });
 
-    
+    map.addControl(geolocate);
+
+    map.on('load', function()
+    {
+        geolocate.trigger();
+    });
 </script>
 
+<button id="report-button">Report Stranding at Location</button>
+<script src="../Scripts/strandingReport.js"></script>
 
+<script>
+    document.getElementById('report-button').addEventListener('click', reportStranding);
+</script>
 </body>
 </html>
