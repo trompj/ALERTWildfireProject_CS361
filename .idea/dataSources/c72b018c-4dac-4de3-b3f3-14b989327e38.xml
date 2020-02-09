@@ -2545,30 +2545,25 @@ customer_id</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="557" parent="349" name="location_note">
+    <column id="557" parent="349" name="alive">
       <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>tinyint(1)|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="558" parent="349" name="alive">
+    <column id="558" parent="349" name="rehabilitated">
       <Position>3</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="559" parent="349" name="rehabilitated">
+    <column id="559" parent="349" name="active">
       <Position>4</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="560" parent="349" name="active">
-      <Position>5</Position>
-      <DataType>tinyint(1)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="561" parent="349" name="PRIMARY">
+    <key id="560" parent="349" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>stranding_id</ColNames>
       <Primary>1</Primary>
