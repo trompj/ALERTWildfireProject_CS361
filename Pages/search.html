@@ -23,21 +23,15 @@
     </div>
 </header>
 
-<h1>Search or filter strandings table</h1>
+<h1>Search strandings by responder that was involved (drop down will be populated with responders from responders table)</h1>
 
-<label for="strandings">Choose a stranding property to search:</label><br>
-
-<select id="strandings">
-  <option value="id">Stranding ID</option>
-  <option value="alive">Alive</option>
-  <option value="rehab">Rehabilitated</option>
-  <option value="active">Active</option>
-</select>
+<br><label for="strandings">Choose a responder to search strandings by:</label><br>
 
 <form>
-  Keyword:<br>
-  <input type="text" name="keyword"><br>
-  <input type="submit" value="Submit">
+   <select id="strandings">
+        <option value="id">Select all</option>
+   </select>
+   <input type="submit" value="Search" id="searchStrandings" style="width: 10%; color: white; border-radius: 5px; background-color: dodgerblue;">
 </form>
 
 </body>
