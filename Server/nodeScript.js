@@ -156,7 +156,7 @@ application.post('/add-stranding', function(request, response, next) {
 
 });
 
-    application.post('/add-user', function(request, response, next) {
+application.post('/add-user', function(request, response, next) {
     let username = request.body.username;
     let password = request.body.password;
     let type = request.body.type;
@@ -169,6 +169,43 @@ application.post('/add-stranding', function(request, response, next) {
 
         response.status(200).send();
     });
+});
+
+application.put('/put-responders',function(request,response,next){
+    let responderId = request.body.responderId;
+    let locationId = request.body.locationId;
+    let respondeBody;
+
+    pool.query("UPDATE responders SET first_name=?, last_name=? WHERE responder_id=? ",
+        [request.body.firstName, request.body.lastName, responderId],
+        function (error, result) {
+            if (error) {
+                next(error);
+                return;
+            }
+
+            pool.query("UPDATE locations SET street1=?, street2=?, city=?, county=?, state=? WHERE location_id=? ",
+                [request.body.street1, request.body.street2, request.body.city, request.body.county,
+                    request.body.state, locationId],
+                function (error, result) {
+                    if (error) {
+                        next(error);
+                        return;
+                    }
+
+                    responseBody = {
+                        "firstName": request.body.firstName,
+                        "lastName": request.body.lastName,
+                        "street1": request.body.street1,
+                        "street2": request.body.street2,
+                        "city": request.body.city,
+                        "county": request.body.county,
+                        "state": request.body.state
+                    };
+
+                    response.status(200).send(JSON.stringify(responseBody));
+                });
+     });
 });
 
 // application.use(function(request,response){

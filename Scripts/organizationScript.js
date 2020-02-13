@@ -1,4 +1,5 @@
 let responderURL = "http://localhost:39999/get-responders";
+let responderPutURL = "http://localhost:39999/put-responders";
 //let url = "http://flip3.engr.oregonstate.edu:36999/";
 
 document.addEventListener('DOMContentLoaded', fillResponderTable);
@@ -51,15 +52,20 @@ function fillResponderTable(event) {
                 td = document.createElement('td');
                 let form = document.createElement('form');
 
+                let hiddenResponderId = document.createElement('input');
+                hiddenResponderId.type = "hidden";
+                hiddenResponderId.value = getResponse[idx].responder_id;
+                form.appendChild(hiddenResponderId);
+
                 let hiddenInput = document.createElement('input');
                 hiddenInput.type = "hidden";
-                hiddenInput.value = getResponse[idx].responder_id;
+                hiddenInput.value = getResponse[idx].location_id;
                 form.appendChild(hiddenInput);
 
                 let editButton = document.createElement('button');
                 let editTxt = document.createTextNode("Edit");
                 editButton.addEventListener('click', function(event) {
-                    editForm(hiddenInput);
+                    editForm(hiddenInput, hiddenResponderId);
 
                     event.preventDefault();
                 });
@@ -89,4 +95,104 @@ function fillResponderTable(event) {
     getResponders.send();
 
     event.preventDefault();
+}
+
+//Edit row that edit button is in.
+function editForm(hiddenInput, hiddenResponderId) {
+    let form = hiddenInput.parentElement;
+    let td = form.parentElement;
+    let tr = td.parentElement;
+
+    //Find all applicable nodes
+    let firstNameNode = tr.firstChild;
+    let lastNameNode = firstNameNode.nextSibling;
+    let street1Node = lastNameNode.nextSibling;
+    let street2Node = street1Node.nextSibling;
+    let cityNode = street2Node.nextSibling;
+    let countyNode = cityNode.nextSibling;
+    let stateNode = countyNode.nextSibling;
+
+
+    //Get value of nodes
+    let responderIdVal = hiddenResponderId.value;
+    let locationIdVal = hiddenInput.value;
+    let firstNameVal = firstNameNode.textContent;
+    let lastNameVal = lastNameNode.textContent;
+    let street1Val = street1Node.textContent;
+    let street2Val = street2Node.textContent;
+    let cityVal = cityNode.textContent;
+    let countyVal = countyNode.textContent;
+    let stateVal = stateNode.textContent;
+
+    //Add values to update/edit form and display pop-up form
+    document.getElementById("first-name-edit").value = firstNameVal;
+    document.getElementById("last-name-edit").value = lastNameVal;
+    document.getElementById("street1-edit").value = street1Val;
+    document.getElementById("street2-edit").value = street2Val;
+    document.getElementById("city-edit").value = cityVal;
+    document.getElementById("county-edit").value = countyVal;
+    document.getElementById("state-edit").value = stateVal;
+    document.getElementById("form-edit-overlay").style.display = "block";
+    document.getElementById("overlay-background").style.display = "block";
+
+    let submitEdit = function (event) {
+        let editRow = new XMLHttpRequest();
+
+        editRow.open("PUT", responderPutURL, true);
+        editRow.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        let postBody = "locationId=" + locationIdVal + "&responderId=" + responderIdVal + "&firstName=" + document.getElementById("first-name-edit").value
+            + "&lastName=" + document.getElementById("last-name-edit").value + "&street1=" +
+            document.getElementById("street1-edit").value + "&street2=" +
+            document.getElementById("street2-edit").value + "&city=" +
+            document.getElementById("city-edit").value + "&county=" +
+            document.getElementById("county-edit").value + "&state=" +
+            document.getElementById("state-edit").value;
+
+        editRow.addEventListener('load', function(event) {
+            // document.getElementById('name-edit').style.borderColor = "initial";
+            // document.getElementById('lbs-edit').style.borderColor = "initial";
+
+            if (editRow.status >= 200 && editRow.status < 400) {
+                let editResponse = JSON.parse(editRow.responseText);
+
+                //Edit form contents on page after update
+                firstNameNode.textContent = editResponse.firstName;
+                lastNameNode.textContent = editResponse.lastName;
+                street1Node.textContent = editResponse.street1;
+                street2Node.textContent = editResponse.street2;
+                cityNode.textContent = editResponse.city;
+                countyNode.textContent = editResponse.county;
+                stateNode.textContent = editResponse.state;
+
+                //Hide pop-up edit form
+                document.getElementById("form-edit-overlay").style.display = "none";
+                document.getElementById("overlay-background").style.display = "none";
+
+                document.getElementById("submit-edit").removeEventListener('click', submitEdit);
+            }
+            // else {
+            //     console.log("Error in network request: " + editRow.statusText);
+            //
+            //     if (editRow.responseText === "name-lbs") {
+            //         document.getElementById('name-edit').style.borderColor = "red";
+            //         document.getElementById('lbs-edit').style.borderColor = "red";
+            //     }
+            //     else if (editRow.responseText === "name") {
+            //         document.getElementById('name-edit').style.borderColor = "red";
+            //     }
+            //     else if (editRow.responseText === "lbs") {
+            //         document.getElementById('lbs-edit').style.borderColor = "red";
+            //     }
+            // }
+
+            event.preventDefault();
+        });
+
+        editRow.send(postBody);
+
+        event.preventDefault();
+    };
+
+    document.getElementById("submit-edit").addEventListener('click', submitEdit);
 }
