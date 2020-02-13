@@ -153,3 +153,13 @@ input, textarea {
 }
 
 /*Map formatting*/
+
+#marker {
+    background-image: url('https://img.icons8.com/material/24/000000/marker--v1.png');
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+

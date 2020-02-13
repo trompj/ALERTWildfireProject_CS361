@@ -1,7 +1,10 @@
+//API DOC REFERENCE USED: https://docs.mapbox.com/mapbox-gl-js/example/set-popup/
+
 mapboxgl.accessToken = 'pk.eyJ1IjoianJ0MjI1IiwiYSI6ImNqcWJzMGVvcjA2Nng0MnFvNHIwdnc5YnYifQ.OZxuEOysWuDEmYUAWdTELA';
-var map = new mapboxgl.Map({
+let map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/outdoors-v11'
+    style: 'mapbox://styles/mapbox/outdoors-v11',
+    zoom: 2
 });
 
 // Add geolocate control to the map.
@@ -16,60 +19,47 @@ map.addControl(geolocate);
 
 map.on('load', function()
 {
-    geolocate.trigger();
+    //geolocate.trigger();
 });
 
 map.on('load', function() {
-    map.loadImage(
-        'https://img.icons8.com/material/24/000000/marker--v1.png',
-        function(error, image) {
-            if (error) throw error;
-            map.addImage('map-icon', image);
+        let mapGetURL = "http://localhost:39999/get-stranding-locations";
+        let getResponders = new XMLHttpRequest();
 
-            let locationURL = "http://localhost:39999/get-stranding-locations";
-            let getResponders = new XMLHttpRequest();
+        getResponders.open("GET", mapGetURL, true);
+        getResponders.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-            getResponders.open("GET", locationURL, true);
-            getResponders.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        getResponders.addEventListener('load', function () {
+            if (getResponders.status >= 200 && getResponders.status < 400) {
+                let getResponse = JSON.parse(getResponders.responseText);
 
-            getResponders.addEventListener('load', function () {
-                if (getResponders.status >= 200 && getResponders.status < 400) {
-                    let getResponse = JSON.parse(getResponders.responseText);
+                for (let idx = 0; idx < getResponse.length; idx++) {
+                    //Create a popup
+                    let strandingPopup = new mapboxgl.Popup({offset: 25}).setHTML (
+                        "<p>"+
+                        "Active: " + getResponse[idx].active + "<br>" +
+                        "Alive: " + getResponse[idx].alive + "<br>" +
+                        "Rehabilitated: " + getResponse[idx].rehabilitated + "<br>" +
+                        "City: " + getResponse[idx].city + "<br>" +
+                        "County: " + getResponse[idx].county + "<br>" +
+                        "State: " + getResponse[idx].state + "<br>" +
+                        "Stranding Note: " + getResponse[idx].note +
+                        "</p>"
+                    );
 
-                    for (let idx = 0; idx < getResponse.length; idx++) {
-                        map.addSource('point', {
-                            'type': 'geojson',
-                            'data': {
-                                'type': 'FeatureCollection',
-                                'features': [
-                                    {
-                                        'type': 'Feature',
-                                        'geometry': {
-                                            'type': 'Point',
-                                            'coordinates': [getResponse[idx].longitude, getResponse[idx].latitude]
-                                        }
-                                    }
-                                ]
-                            }
-                        });
+                    let element = document.createElement('div');
+                    element.id = 'marker';
 
-                        map.addLayer({
-                            'id': 'points',
-                            'type': 'symbol',
-                            'source': 'point',
-                            'layout': {
-                                'icon-image': 'map-icon',
-                                'icon-size': 0.75
-                            }
-                        });
-                    }
+                    new mapboxgl.Marker(element)
+                        .setLngLat([getResponse[idx].longitude, getResponse[idx].latitude])
+                        .setPopup(strandingPopup)
+                        .addTo(map);
+
                 }
-            });
+            }
+        });
 
-            getResponders.send();
+        getResponders.send();
 
-            event.preventDefault();
-
-        }
-    )
+        event.preventDefault();
 });

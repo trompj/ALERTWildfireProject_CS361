@@ -239,7 +239,7 @@ application.get('/get-responders', function(request, response, next) {
 
 //Get all locations of strandings
 application.get('/get-stranding-locations', function(request, response, next) {
-    pool.query('SELECT * FROM locations', function (error, rows, fields) {
+    pool.query('SELECT * FROM strandings LEFT JOIN locations ON strandings.location_id = locations.location_id', function (error, rows, fields) {
 
         if (error) {
             next(error);
