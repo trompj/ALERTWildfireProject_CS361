@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALERTWildfire System</title>
+    <title>Marine Mammal Stranding System</title>
     <script src="https://kit.fontawesome.com/a88b731ad6.js" crossorigin="anonymous"></script>
     <script src="../Scripts/login.js"></script>
     <link rel="stylesheet" href="../Styles/style.css" type="text/css">
+    <script src="../Scripts/organizationScript.js"></script>
 </head>
 <!--<body onload="authenticateSession()">-->
 <body>
@@ -43,6 +44,49 @@
   <input type="submit" id="postResponder" style="width: 10%; color: white; border-radius: 5px; background-color: dodgerblue;">
 </form>
 
+<br>
+<h4>Responders</h4>
+<div id="responder-list-container">
+    <table>
+        <tbody id="responder-table">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Street 1</th>
+            <th>Street 2</th>
+            <th>City</th>
+            <th>County</th>
+            <th>State</th>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="overlay-background" style="display: none; position: absolute; height: 100%; width: 100%; background-color: grey; top: 0; left: 0; opacity: .5"></div>
+
+<div id="form-edit-overlay" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%">
+    <form style="background-color: white">
+        <fieldset>
+            <h4>Update Responder</h4>
+            <br>
+            <label for="first-name-edit">First Name:</label>
+            <input type="text" name="first-name-edit" id="first-name-edit">
+            <label for="last-name-edit">Last Name:</label>
+            <input type="text" name="last-name-edit" id="last-name-edit">
+            <label for="street1-edit">Street 1:</label>
+            <input type="text" name="street1-edit" id="street1-edit">
+            <label for="street2-edit">Street 2:</label>
+            <input type="text" name="street2-edit" id="street2-edit">
+            <label for="city-edit">City:</label>
+            <input type="text" name="city-edit" id="city-edit">
+            <label for="county-edit">County:</label>
+            <input type="text" name="county-edit" id="county-edit">
+            <label for="state-edit">State:</label>
+            <input type="text" name="state-edit" id="state-edit">
+            <input type="submit" id="submit-edit">
+        </fieldset>
+    </form>
+</div>
 
 
 </body>

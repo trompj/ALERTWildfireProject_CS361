@@ -97,6 +97,7 @@ application.post('/add-stranding', function(request, response, next) {
     let mammalId = 0;
     let locationId = 0;
 
+    //Insert stranding row
     pool.query("INSERT INTO strandings (`alive`) VALUES (?)"
         , [alive], function (error, result) {
             if (error) {
@@ -111,8 +112,34 @@ application.post('/add-stranding', function(request, response, next) {
             strandingId = result.insertId;
 
             response.status(200).send();
-    });
 
+            //Insert location row with FK ID for stranding
+            pool.query("INSERT INTO locations (`city`, `state`, `county`, `longitude`, `latitude`, `note`, `stranding_id`) VALUES (?, ?, ?, ?, ?, ?, ?)"
+                , [city, state, county, longitude, latitude, locationNote, strandingId], function (error, result) {
+                    if (error) {
+                        next(error);
+                        return;
+                    }
+
+                    locationId = result.insertId;
+
+                    response.status(200).send();
+
+                    //Update stranding with FK ID for location
+                    pool.query("UPDATE strandings SET location_id=? WHERE stranding_id=? ",
+                        [locationId, strandingId],
+                        function (error, result) {
+                            if (error) {
+                                next(error);
+                                return;
+                            }
+
+                            response.status(200).send();
+                        });
+                });
+        });
+
+    //Insert mammal row
     pool.query("INSERT INTO mammals (`note`, `stranding_id`) VALUES (?, (SELECT stranding_id FROM strandings ORDER BY stranding_id DESC LIMIT 1))"
         , [mammalNote], function (error, result) {
             if (error) {
@@ -125,36 +152,11 @@ application.post('/add-stranding', function(request, response, next) {
             };
 
             response.status(200).send();
-    });
+        });
 
-    pool.query("INSERT INTO locations (`city`, `state`, `county`, `longitude`, `latitude`, `note`, `stranding_id`) VALUES (?, ?, ?, ?, ?, ?, (SELECT stranding_id FROM strandings ORDER BY stranding_id DESC LIMIT 1))"
-        , [city, state, county, alive, longitude, latitude, locationNote], function (error, result) {
-        if (error) {
-            next(error);
-            return;
-        }
-
-        response.status(200).send();
-    });
 });
 
-application.get('/reset-mammal-table',function(req,res,next){
-    let context = {};
-    pool.query("DROP TABLE IF EXISTS strandings", function(err){ //replace your connection pool with the your variable containing the connection pool
-        let createString = "CREATE TABLE strandings("+
-            "stranding_id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,"+
-            "location_note varchar(255),"+
-            "alive boolean NOT NULL,"+
-            "rehabilitated` boolean NOT NULL," +
-            "active` boolean NOT NULL)";
-        pool.query(createString, function(err){
-            context.results = "Table reset";
-            res.sendStatus(200);
-        })
-    });
-});
-
-application.post('/add-user', function(request, response, next) {
+    application.post('/add-user', function(request, response, next) {
     let username = request.body.username;
     let password = request.body.password;
     let type = request.body.type;
@@ -169,59 +171,44 @@ application.post('/add-user', function(request, response, next) {
     });
 });
 
-application.use(function(request,response){
-    response.status(404);
-    response.render('404');
-});
-
-application.use(function(error, request, response, next){
-    console.error(error.stack);
-    response.type('plain/text');
-    response.status(500);
-    response.render('500');
-});
+// application.use(function(request,response){
+//     response.status(404);
+//     response.render('404');
+// });
+//
+// application.use(function(error, request, response, next){
+//     console.error(error.stack);
+//     response.type('plain/text');
+//     response.status(500);
+//     response.render('500');
+// });
 
 application.listen(application.get('port'), function(){
     console.log('Express started on http://localhost:' + application.get('port') + '; press Ctrl-C to terminate.');
 });
 
+//Get all responders and corresponding location information
+application.get('/get-responders', function(request, response, next) {
+    pool.query('SELECT * FROM responders LEFT JOIN locations ON responders.location_id = locations.location_id', function (error, rows, fields) {
 
-//TABLE CREATIONS
-// CREATE TABLE `strandings` (
-//     `stranding_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-//     `location_note` varchar(255),
-//     `alive` boolean NOT NULL,
-//     `rehabilitated` boolean NOT NULL,
-//     `active` boolean NOT NULL
-// );
-//
-// CREATE TABLE `responders` (
-//     `responder_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-//     `first_name` varchar(20),
-//     `last_name` varchar(20)
-// );
-//
-// CREATE TABLE `mammals` (
-//     `mammal_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-//     `stranding_id` int(11),
-//     `length` double,
-//     `sex` char,
-//     `note` varchar (255),
-//     FOREIGN KEY(stranding_id) REFERENCES strandings(stranding_id)
-// );
-//
-// CREATE TABLE `locations` (
-//     `location_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-//     `responder_id` int(11),
-//     `stranding_id` int(11),
-//     `street1` varchar(20),
-//     `street2` varchar(20),
-//     `city` varchar(20),
-//     `county` varchar (20) NOT NULL,
-//     `state` varchar(2) NOT NULL,
-//     `longitude` double,
-//     `latitude` double,
-//     `note` varchar(255),
-//     FOREIGN KEY(stranding_id) REFERENCES strandings(stranding_id),
-//     FOREIGN KEY(responder_id) REFERENCES responders(responder_id)
-// );
+        if (error) {
+            next(error);
+            return;
+        }
+
+        response.status(200).send(rows);
+    });
+});
+
+//Get all locations of strandings
+application.get('/get-stranding-locations', function(request, response, next) {
+    pool.query('SELECT * FROM locations', function (error, rows, fields) {
+
+        if (error) {
+            next(error);
+            return;
+        }
+
+        response.status(200).send(rows);
+    });
+});

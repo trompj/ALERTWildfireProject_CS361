@@ -25,7 +25,7 @@ function getLocation(event) {
 
 function getCoor(position) {
     document.getElementById("latitude").value = position.coords.latitude;
-    document.getElementById("longitude").value = position.coords.longitude;;
+    document.getElementById("longitude").value = position.coords.longitude;
 }
 
 function errorCoor() {
