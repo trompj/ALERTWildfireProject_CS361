@@ -1,5 +1,7 @@
 let responderURL = "http://localhost:39999/get-responders";
 let responderPutURL = "http://localhost:39999/put-responders";
+let deleteResponder = "http://localhost:39999/delete-responder";
+
 //let url = "http://flip3.engr.oregonstate.edu:36999/";
 
 document.addEventListener('DOMContentLoaded', fillResponderTable);
@@ -75,7 +77,7 @@ function fillResponderTable(event) {
                 let deleteButton = document.createElement('button');
                 let deleteTxt = document.createTextNode("Delete");
                 deleteButton.addEventListener('click', function(event) {
-                    deleteRow(hiddenInput);
+                    deleteResponderRow(hiddenInput, hiddenResponderId);
 
                     event.preventDefault();
                 });
@@ -150,9 +152,6 @@ function editForm(hiddenInput, hiddenResponderId) {
             document.getElementById("state-edit").value;
 
         editRow.addEventListener('load', function(event) {
-            // document.getElementById('name-edit').style.borderColor = "initial";
-            // document.getElementById('lbs-edit').style.borderColor = "initial";
-
             if (editRow.status >= 200 && editRow.status < 400) {
                 let editResponse = JSON.parse(editRow.responseText);
 
@@ -171,20 +170,6 @@ function editForm(hiddenInput, hiddenResponderId) {
 
                 document.getElementById("submit-edit").removeEventListener('click', submitEdit);
             }
-            // else {
-            //     console.log("Error in network request: " + editRow.statusText);
-            //
-            //     if (editRow.responseText === "name-lbs") {
-            //         document.getElementById('name-edit').style.borderColor = "red";
-            //         document.getElementById('lbs-edit').style.borderColor = "red";
-            //     }
-            //     else if (editRow.responseText === "name") {
-            //         document.getElementById('name-edit').style.borderColor = "red";
-            //     }
-            //     else if (editRow.responseText === "lbs") {
-            //         document.getElementById('lbs-edit').style.borderColor = "red";
-            //     }
-            // }
 
             event.preventDefault();
         });
@@ -195,4 +180,36 @@ function editForm(hiddenInput, hiddenResponderId) {
     };
 
     document.getElementById("submit-edit").addEventListener('click', submitEdit);
+}
+
+//Delete row that delete button is in.
+function deleteResponderRow(hiddenInput, hiddenResponderId) {
+    let deleteRow = new XMLHttpRequest();
+
+    deleteRow.open("DELETE", deleteResponder, true);
+    deleteRow.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    let locationIdVal = hiddenInput.value;
+    let responderIdVal = hiddenResponderId.value;
+    let postBody = "locationId=" + locationIdVal + "&responderId=" + responderIdVal;
+
+    deleteRow.addEventListener('load', function() {
+        if (deleteRow.status >= 200 && deleteRow.status < 400) {
+
+            let form = hiddenInput.parentElement;
+            let td = form.parentElement;
+            let tr = td.parentElement;
+
+            while (tr.firstChild) {
+                tr.removeChild(tr.firstChild);
+            }
+
+            tr.remove();
+        }
+        else {
+            console.log("Error in network request: " + deleteRow.statusText);
+        }
+    });
+
+    deleteRow.send(postBody);
 }

@@ -249,3 +249,16 @@ application.get('/get-stranding-locations', function(request, response, next) {
         response.status(200).send(rows);
     });
 });
+
+//Delete a responder and their location from database
+application.delete('/delete-responder', function (request, response, next) {
+
+    pool.query("DELETE FROM responders WHERE responder_id=?", [request.body.responderId], function(error, result){
+        if(error){
+            next(error);
+            return;
+        }
+
+        response.status(200).send();
+    });
+});

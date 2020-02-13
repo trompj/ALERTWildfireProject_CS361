@@ -2135,6 +2135,7 @@ film_id</ColNames>
       <RefSchemaName>cs340_trompj</RefSchemaName>
       <RefTableName>responders</RefTableName>
       <RefColNames>responder_id</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <foreign-key id="487" parent="342" name="locations_ibfk_1">
       <ColNames>stranding_id</ColNames>
@@ -2398,6 +2399,7 @@ customer_id</ColNames>
       <RefSchemaName>cs340_trompj</RefSchemaName>
       <RefTableName>locations</RefTableName>
       <RefColNames>location_id</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="533" parent="347" name="staff_id">
       <Position>1</Position>
