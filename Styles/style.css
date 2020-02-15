@@ -126,6 +126,16 @@ div.wrap-container {
     margin-top: 5%;
 }
 
+div.home-format {
+    border:1px solid black;
+    width: 55%;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    margin-top: 2%;
+}
+
 #reporting-form {
     width: 100%;
 }
