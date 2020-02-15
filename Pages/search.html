@@ -23,15 +23,25 @@
     </div>
 </header>
 
-<h1>Search strandings by responder that was involved (drop down will be populated with responders from responders table)</h1>
+<br>
+<h2>Search strandings by responder that was involved (drop down will be populated with responders from responders table)</h2>
 
-<br><label for="strandings">Choose a responder to search strandings by:</label><br>
+<label for="strandings">Choose a responder to search strandings by:</label><br>
 
 <form>
    <select id="strandings">
         <option value="id">Select all</option>
    </select>
    <input type="submit" value="Search" id="searchStrandings" style="width: 10%; color: white; border-radius: 5px; background-color: dodgerblue;">
+</form>
+
+<br>
+
+<h3>Update stranding by ID</h3>
+<form>
+    <label>Stranding ID: </label>
+    <input type="text" name="strandingId" id="strandingId" placeholder="e.g. 3458">
+    <input type="submit" value="Edit" id="updateStranding" style="width: 7%; color: white; border-radius: 5px; background-color: dodgerblue;">
 </form>
 
 </body>
