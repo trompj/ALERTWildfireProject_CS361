@@ -37,13 +37,14 @@ map.on('load', function() {
                     //Create a popup
                     let strandingPopup = new mapboxgl.Popup({offset: 25}).setHTML (
                         "<p>"+
-                        "Active: " + getResponse[idx].active + "<br>" +
+                        "Stranding Active: " + getResponse[idx].active + "<br>" +
                         "Alive: " + getResponse[idx].alive + "<br>" +
                         "Rehabilitated: " + getResponse[idx].rehabilitated + "<br>" +
+                        "Mammal Note: " + getResponse[idx].mammal_note + "<br>" +
                         "City: " + getResponse[idx].city + "<br>" +
                         "County: " + getResponse[idx].county + "<br>" +
                         "State: " + getResponse[idx].state + "<br>" +
-                        "Stranding Note: " + getResponse[idx].note +
+                        "Location Note: " + getResponse[idx].location_note +
                         "</p>"
                     );
 

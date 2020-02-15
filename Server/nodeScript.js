@@ -114,7 +114,7 @@ application.post('/add-stranding', function(request, response, next) {
             response.status(200).send();
 
             //Insert location row with FK ID for stranding
-            pool.query("INSERT INTO locations (`city`, `state`, `county`, `longitude`, `latitude`, `note`, `stranding_id`) VALUES (?, ?, ?, ?, ?, ?, ?)"
+            pool.query("INSERT INTO locations (`city`, `state`, `county`, `longitude`, `latitude`, location_note, `stranding_id`) VALUES (?, ?, ?, ?, ?, ?, ?)"
                 , [city, state, county, longitude, latitude, locationNote, strandingId], function (error, result) {
                     if (error) {
                         next(error);
@@ -135,23 +135,19 @@ application.post('/add-stranding', function(request, response, next) {
                             }
 
                             response.status(200).send();
+
+                            //Insert mammal row
+                            pool.query("INSERT INTO mammals (mammal_note, `alive`, `stranding_id`) VALUES (?, ?, ?)"
+                                , [mammalNote, alive, ("SELECT stranding_id FROM strandings ORDER BY stranding_id DESC LIMIT 1")], function (error, result) {
+                                    if (error) {
+                                        next(error);
+                                        return;
+                                    }
+
+                                    response.status(200).send();
+                                });
                         });
                 });
-        });
-
-    //Insert mammal row
-    pool.query("INSERT INTO mammals (`note`, `stranding_id`) VALUES (?, (SELECT stranding_id FROM strandings ORDER BY stranding_id DESC LIMIT 1))"
-        , [mammalNote], function (error, result) {
-            if (error) {
-                next(error);
-                return;
-            }
-
-            let row = {
-                "note": mammalNote,
-            };
-
-            response.status(200).send();
         });
 
 });
@@ -239,7 +235,7 @@ application.get('/get-responders', function(request, response, next) {
 
 //Get all locations of strandings
 application.get('/get-stranding-locations', function(request, response, next) {
-    pool.query('SELECT * FROM strandings LEFT JOIN locations ON strandings.location_id = locations.location_id', function (error, rows, fields) {
+    pool.query('SELECT *, GROUP_CONCAT(strandings.stranding_id) FROM strandings LEFT JOIN locations ON strandings.location_id = locations.location_id LEFT JOIN mammals ON strandings.stranding_id = mammals.stranding_id', function (error, rows, fields) {
 
         if (error) {
             next(error);
