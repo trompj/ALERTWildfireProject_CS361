@@ -180,7 +180,7 @@ application.put('/put-responders',function(request,response,next){
                 return;
             }
 
-            pool.query("UPDATE locations SET street1=?, street2=?, city=?, county=?, state=? WHERE location_id=? ",
+            pool.query("UPDATE locations SET street1=?, street2=?, city=?, county=?, state=? WHERE location_id=?",
                 [request.body.street1, request.body.street2, request.body.city, request.body.county,
                     request.body.state, locationId],
                 function (error, result) {
@@ -243,6 +243,49 @@ application.get('/get-stranding-locations', function(request, response, next) {
         }
 
         response.status(200).send(rows);
+    });
+});
+
+//Get stranding and its location
+application.get('/get-stranding', function(request, response, next) {
+    pool.query("SELECT * FROM strandings LEFT JOIN locations ON strandings.location_id = locations.location_id WHERE strandings.stranding_id = ?",
+            [request.query.strandingId],
+            function (error, rows, result) {
+
+        if (error) {
+            next(error);
+            return;
+        }
+
+        response.status(200).send(rows);
+    });
+});
+
+//Update stranding and its location
+application.put('/put-stranding', function(request, response, next) {
+    let strandingId = request.body.strandingId;
+    let locationId = request.body.locationId;
+    let respondeBody;
+
+    pool.query("UPDATE strandings SET active=? WHERE stranding_id=? ",
+        [request.body.active, strandingId],
+        function (error, result) {
+            if (error) {
+                next(error);
+                return;
+            }
+
+            pool.query("UPDATE locations SET street1=?, street2=?, city=?, county=?, state=?, latitude=?, longitude=? WHERE location_id=? ",
+                [request.body.street1, request.body.street2, request.body.city, request.body.county,
+                    request.body.state, request.body.latitude, request.body.longitude, locationId],
+                function (error, result) {
+                    if (error) {
+                        next(error);
+                        return;
+                    }
+
+                    response.status(200).send();
+            });
     });
 });
 

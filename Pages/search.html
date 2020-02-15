@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marine Mammal Stranding System</title>
-    <script src="https://kit.fontawesome.com/a88b731ad6.js" crossorigin="anonymous"></script>
     <script src="../Scripts/login.js"></script>
     <link rel="stylesheet" href="../Styles/style.css" type="text/css">
 </head>
@@ -32,7 +31,7 @@
    <select id="strandings">
         <option value="id">Select all</option>
    </select>
-   <input type="submit" value="Search" id="searchStrandings" style="width: 10%; color: white; border-radius: 5px; background-color: dodgerblue;">
+   <input type="submit" value="Search" id="searchStrandings" style="width: 9%; color: white; border-radius: 5px; background-color: dodgerblue;">
 </form>
 
 <br>
@@ -41,8 +40,54 @@
 <form>
     <label>Stranding ID: </label>
     <input type="text" name="strandingId" id="strandingId" placeholder="e.g. 3458">
-    <input type="submit" value="Edit" id="updateStranding" style="width: 7%; color: white; border-radius: 5px; background-color: dodgerblue;">
+    <input type="submit" value="Edit" id="update-stranding" style="width: 7%; color: white; border-radius: 5px; background-color: dodgerblue;">
 </form>
 
+<br>
+
+<h3>Show Mammals Associated With Stranding</h3>
+<form>
+    <label>Stranding ID: </label>
+    <input type="text" name="strandingId" id="strandingMammalId" placeholder="e.g. 3458">
+    <input type="submit" value="Search" id="findStranding" style="width: 9%; color: white; border-radius: 5px; background-color: dodgerblue;">
+</form>
+
+<div id="overlay-background" style="display: none; position: absolute; height: 100%; width: 100%; background-color: grey; top: 0; left: 0; opacity: .5"></div>
+
+<div id="form-edit-overlay" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%">
+    <form style="background-color: white">
+        <fieldset>
+            <h4>Update Stranding</h4>
+            <br>
+            <label for="active-edit">Active:</label>
+            <input type="text" name="active-edit" id="active-edit">
+            <br>
+            <label for="street1-edit">Street1:</label>
+            <input type="text" name="street1-edit" id="street1-edit">
+            <br>
+            <label for="street2-edit">Street2:</label>
+            <input type="text" name="street2-edit" id="street2-edit">
+            <br>
+            <label for="city-edit">City:</label>
+            <input type="text" name="city-edit" id="city-edit">
+            <br>
+            <label for="county-edit">County:</label>
+            <input type="text" name="county-edit" id="county-edit">
+            <br>
+            <label for="state-edit">State:</label>
+            <input type="text" name="state-edit" id="state-edit">
+            <br>
+            <label for="latitude-edit">Latitude:</label>
+            <input type="text" name="latitude-edit" id="latitude-edit">
+            <br>
+            <label for="longitude-edit">Longitude:</label>
+            <input type="text" name="longitude-edit" id="longitude-edit">
+            <br>
+            <input type="submit" id="submit-edit">
+        </fieldset>
+    </form>
+</div>
+
+<script src="../Scripts/search.js"></script>
 </body>
 </html>
