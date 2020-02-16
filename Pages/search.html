@@ -23,15 +23,15 @@
 </header>
 
 <br>
-<h2>Search strandings by responder that was involved (drop down will be populated with responders from responders table)</h2>
+<h2>Search strandings by responder involved, update a stranding, search mammals by stranding, or add responder to a stranding</h2>
 
-<label for="strandings">Choose a responder to search strandings by:</label><br>
-
+<br><h3>Show Strandings Associated with Responder (drop down dynamically populated from responders table)</h3>
 <form>
-   <select id="strandings">
+    <label>Responder:</label>
+    <select id="strandings">
         <option value="id">Select all</option>
-   </select>
-   <input type="submit" value="Search" id="searchStrandings" style="width: 9%; color: white; border-radius: 5px; background-color: dodgerblue;">
+    </select>
+    <input type="submit" value="Search" id="searchStrandings" style="width: 9%; color: white; border-radius: 5px; background-color: dodgerblue;">
 </form>
 
 <br>
@@ -50,6 +50,19 @@
     <label>Stranding ID: </label>
     <input type="text" name="strandingId" id="strandingMammalId" placeholder="e.g. 3458">
     <input type="submit" value="Search" id="findStranding" style="width: 9%; color: white; border-radius: 5px; background-color: dodgerblue;">
+</form>
+
+<br>
+
+<h3>Add Responder to a Stranding (drop down dynamically populated from responders table)</h3>
+<form>
+    <label>Responder:</label>
+    <select id="strandings">
+        <option value="id">Select all</option>
+    </select><br>
+    <label>Stranding ID: </label>
+    <input type="text" name="strandingId" id="strandingMammalId" placeholder="e.g. 3458">
+    <input type="submit" value="Add Responder" id="addResponder" style="width: 9%; color: white; border-radius: 5px; background-color: dodgerblue;">
 </form>
 
 <div id="overlay-background" style="display: none; position: absolute; height: 100%; width: 100%; background-color: grey; top: 0; left: 0; opacity: .5"></div>
