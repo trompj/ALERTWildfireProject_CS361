@@ -25,10 +25,10 @@
 <br>
 <h2>Search strandings by responder involved, update a stranding, search mammals by stranding, or add responder to a stranding</h2>
 
-<br><h3>Show Strandings Associated with Responder (drop down dynamically populated from responders table)</h3>
+<br><h3>Show strandings associated with responder (drop down dynamically populated from responders table)</h3>
 <form>
     <label>Responder:</label>
-    <select id="strandings">
+    <select class="strandings">
         <option value="id">Select all</option>
     </select>
     <input type="submit" value="Search" id="searchStrandings" style="width: 9%; color: white; border-radius: 5px; background-color: dodgerblue;">
@@ -36,7 +36,7 @@
 
 <br>
 
-<h3>Update stranding by ID </h3>
+<h3>Update Stranding by ID </h3>
 <form>
     <label>Stranding ID: </label>
     <input type="text" name="strandingId" id="strandingId" placeholder="e.g. 3458">
@@ -45,10 +45,19 @@
 
 <br>
 
+<h3>Add Mammal to Stranding</h3>
+<form>
+    <label>Stranding ID: </label>
+    <input type="text" name="strandingId" id="addMammalStrandingId" placeholder="e.g. 3458">
+    <input type="submit" value="Add" id="add-mammal" style="width: 7%; color: white; border-radius: 5px; background-color: dodgerblue;">
+</form>
+
+<br>
+
 <h3>Show Mammals Associated With Stranding</h3>
 <form>
     <label>Stranding ID: </label>
-    <input type="text" name="strandingId" id="strandingMammalId" placeholder="e.g. 3458">
+    <input type="text" name="strandingId" class="strandingMammalId" placeholder="e.g. 3458">
     <input type="submit" value="Search" id="findStranding" style="width: 9%; color: white; border-radius: 5px; background-color: dodgerblue;">
 </form>
 
@@ -61,7 +70,7 @@
         <option value="id">Select all</option>
     </select><br>
     <label>Stranding ID: </label>
-    <input type="text" name="strandingId" id="strandingMammalId" placeholder="e.g. 3458">
+    <input type="text" name="strandingId" class="strandingMammalId" placeholder="e.g. 3458">
     <input type="submit" value="Add Responder" id="addResponder" style="width: 9%; color: white; border-radius: 5px; background-color: dodgerblue;">
 </form>
 
@@ -97,6 +106,31 @@
             <input type="text" name="longitude-edit" id="longitude-edit">
             <br>
             <input type="submit" id="submit-edit">
+        </fieldset>
+    </form>
+</div>
+
+<div id="mammal-form-edit-overlay" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%">
+    <form style="background-color: white">
+        <fieldset>
+            <h4>Add Mammal</h4>
+            <br>
+            <label for="length-edit">Length:</label>
+            <input type="text" name="length-edit" id="length-edit">
+            <br>
+            <label for="sex-edit">Sex:</label>
+            <input type="text" name="sex-edit" id="sex-edit">
+            <br>
+            <label for="rehabilitated-edit">Rehabilitated:</label>
+            <input type="text" name="rehabilitated-edit" id="rehabilitated-edit">
+            <br>
+            <label for="alive-edit">Alive:</label>
+            <input type="text" name="alive-edit" id="alive-edit">
+            <br>
+            <label for="note-edit">Note:</label>
+            <input type="text" name="note-edit" id="note-edit">
+            <br>
+            <input type="submit" id="submit-mammal-edit">
         </fieldset>
     </form>
 </div>

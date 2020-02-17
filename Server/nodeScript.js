@@ -83,6 +83,29 @@ application.post('/login', function(request, response, next) {
     });
 });
 
+application.post('/add-mammal', function(request, response, next) {
+    let length = request.body.length;
+    let sex = request.body.sex;
+    let rehabilitated = request.body.rehabilitated;
+    let alive = request.body.alive;
+    let note = request.body.note;
+
+    let strandingId = 0;
+
+    //Insert stranding row
+    pool.query("INSERT INTO mammals (`length`, `sex`, `rehabilitated`, `alive`, `mammal_note`, `stranding_id`) VALUES (?, ?, ?, ?, ?, (SELECT stranding_id FROM strandings WHERE stranding_id=?))"
+        , [length, sex, rehabilitated, alive, note, strandingId], function (error, result) {
+            if (error) {
+                next(error);
+                return;
+            }
+
+            strandingId = result.insertId;
+
+            response.status(200).send();
+    });
+});
+
 application.post('/add-stranding', function(request, response, next) {
     let city = request.body.city;
     let state = request.body.state;

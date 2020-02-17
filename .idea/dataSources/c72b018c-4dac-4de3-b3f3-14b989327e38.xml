@@ -2585,16 +2585,21 @@ customer_id</ColNames>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="564" parent="349" name="location_id">
+    <column id="564" parent="349" name="stranding_note">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="565" parent="349" name="location_id">
       <ColNames>location_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="565" parent="349" name="PRIMARY">
+    <key id="566" parent="349" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>stranding_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="566" parent="349" name="strandings_ibfk_1">
+    <foreign-key id="567" parent="349" name="strandings_ibfk_1">
       <ColNames>location_id</ColNames>
       <RefSchemaName>cs340_trompj</RefSchemaName>
       <RefTableName>locations</RefTableName>

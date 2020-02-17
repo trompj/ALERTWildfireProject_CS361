@@ -1,9 +1,16 @@
 let getStrandingURL = "http://localhost:39999/get-stranding";
 let updateStrandingURL = "http://localhost:39999/put-stranding";
-document.getElementById('update-stranding').addEventListener('click', editForm);
+let addMammalURL = "http://localhost:39999/add-mammal";
+
+//let getStrandingURL = "http://flip1.engr.oregonstate.edu:39999/get-stranding";
+//let updateStrandingURL = "http://flip1.engr.oregonstate.edu:39999/put-stranding";
+//let addMammalURL = "http://flip1.engr.oregonstate.edu:39999/add-mammal";
+
+document.getElementById('update-stranding').addEventListener('click', editStrandingForm);
+document.getElementById('add-mammal').addEventListener('click', addMammalForm);
 
 //Edit row that edit button is in.
-function editForm() {
+function editStrandingForm() {
     //Get the stranding
     let strandingId = document.getElementById("strandingId").value;
 
@@ -64,6 +71,65 @@ function editForm() {
             };
 
             document.getElementById("submit-edit").addEventListener('click', submitEdit);
+        }
+    });
+
+    getStranding.send();
+
+    event.preventDefault();
+}
+
+//Add a mammal to an active stranding.
+function addMammalForm(event) {
+    //Get the stranding
+    let strandingId = document.getElementById("addMammalStrandingId").value;
+
+    let getStranding = new XMLHttpRequest();
+
+    let getRequestURL = getStrandingURL + "?strandingId=" + strandingId;
+    getStranding.open("GET", getRequestURL, true);
+    getStranding.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    getStranding.addEventListener('load', function() {
+        if (getStranding.status >= 200 && getStranding.status < 400) {
+
+            let postMammal = new XMLHttpRequest();
+
+            document.getElementById("mammal-form-edit-overlay").style.display = "block";
+            document.getElementById("overlay-background").style.display = "block";
+
+            let submitMammalEdit = function (event) {
+                postMammal.open("POST", addMammalURL, true);
+                postMammal.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+                //Add values to update/edit form and display pop-up form
+                let length = document.getElementById("length-edit").value;
+                let sex = document.getElementById("sex-edit").value;
+                let rehabilitated = document.getElementById("rehabilitated-edit").value;
+                let alive = document.getElementById("alive-edit").value;
+                let note = document.getElementById("note-edit").value;
+
+                let postBody = "strandingId=" + strandingId + "&length=" + length + "&sex=" +
+                    sex + "&rehabilitated=" + rehabilitated + "&alive=" + alive +
+                    "&note=" + note;
+
+                postMammal.addEventListener('load', function () {
+                    if (postMammal.status >= 200 && postMammal.status < 400) {
+
+                        //Hide pop-up edit form
+                        document.getElementById("mammal-form-edit-overlay").style.display = "none";
+                        document.getElementById("overlay-background").style.display = "none";
+
+                        document.getElementById("submit-mammal-edit").removeEventListener('click', submitMammalEdit);
+                    }
+                });
+
+                event.preventDefault();
+
+                postMammal.send(postBody);
+            };
+
+            document.getElementById("submit-mammal-edit").addEventListener('click', submitMammalEdit);
         }
     });
 
