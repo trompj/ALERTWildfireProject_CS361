@@ -93,7 +93,7 @@ application.post('/add-mammal', function(request, response, next) {
     let strandingId = 0;
 
     //Insert stranding row
-    pool.query("INSERT INTO mammals (`length`, `sex`, `rehabilitated`, `alive`, `mammal_note`, `stranding_id`) VALUES (?, ?, ?, ?, ?, (SELECT stranding_id FROM strandings WHERE stranding_id=?))"
+    pool.query("INSERT INTO mammals (`length`, `sex`, `rehabilitated`, `alive`, `noteZ`, `stranding_id`) VALUES (?, ?, ?, ?, ?, (SELECT stranding_id FROM strandings WHERE stranding_id=?))"
         , [length, sex, rehabilitated, alive, note, strandingId], function (error, result) {
             if (error) {
                 next(error);
@@ -111,6 +111,7 @@ application.post('/add-stranding', function(request, response, next) {
     let state = request.body.state;
     let county = request.body.county;
     let alive = request.body.alive;
+    let active = true;
     let longitude = request.body.longitude;
     let latitude = request.body.latitude;
     let mammalNote = request.body.mammalNote;
@@ -120,61 +121,46 @@ application.post('/add-stranding', function(request, response, next) {
     let mammalId = 0;
     let locationId = 0;
 
-    //Insert stranding row
-    pool.query("INSERT INTO strandings (`alive`) VALUES (?)"
-        , [alive], function (error, result) {
-            if (error) {
-                next(error);
-                return;
-            }
+        //Insert location row with FK ID for stranding
+        pool.query("INSERT INTO locations (`city`, `state`, `county`, `longitude`, `latitude`, `note`) VALUES (?, ?, ?, ?, ?, ?)"
+            , [city, state, county, longitude, latitude, locationNote], function (error, result) {
+                if (error) {
+                    next(error);
+                    return;
+                }
 
-            let row = {
-                "alive": alive,
-            };
+                locationId = result.insertId;
 
-            strandingId = result.insertId;
+                response.status(200).send();
 
-            response.status(200).send();
+                //Update stranding with FK ID for location
+                pool.query("INSERT INTO strandings (`active`, `location_id`) VALUES (?, ?)",
+                    [active, locationId],
+                    function (error, result) {
+                        if (error) {
+                            next(error);
+                            return;
+                        }
 
-            //Insert location row with FK ID for stranding
-            pool.query("INSERT INTO locations (`city`, `state`, `county`, `longitude`, `latitude`, location_note, `stranding_id`) VALUES (?, ?, ?, ?, ?, ?, ?)"
-                , [city, state, county, longitude, latitude, locationNote, strandingId], function (error, result) {
-                    if (error) {
-                        next(error);
-                        return;
-                    }
+                        strandingId = result.insertId;
 
-                    locationId = result.insertId;
+                        response.status(200).send();
 
-                    response.status(200).send();
+                        //Insert mammal row
+                        pool.query("INSERT INTO mammals (`note`, `alive`, `stranding_id`) VALUES (?, ?, ?)"
+                            , [mammalNote, alive, strandingId], function (error, result) {
+                                if (error) {
+                                    next(error);
+                                    return;
+                                }
 
-                    //Update stranding with FK ID for location
-                    pool.query("UPDATE strandings SET location_id=? WHERE stranding_id=? ",
-                        [locationId, strandingId],
-                        function (error, result) {
-                            if (error) {
-                                next(error);
-                                return;
-                            }
-
-                            response.status(200).send();
-
-                            //Insert mammal row
-                            pool.query("INSERT INTO mammals (mammal_note, `alive`, `stranding_id`) VALUES (?, ?, ?)"
-                                , [mammalNote, alive, ("SELECT stranding_id FROM strandings ORDER BY stranding_id DESC LIMIT 1")], function (error, result) {
-                                    if (error) {
-                                        next(error);
-                                        return;
-                                    }
-
-                                    response.status(200).send();
-                                });
+                                response.status(200).send();
                         });
                 });
         });
-
 });
 
+//Not currently in use, would be used for a login
 application.post('/add-user', function(request, response, next) {
     let username = request.body.username;
     let password = request.body.password;
@@ -290,7 +276,7 @@ application.put('/put-stranding', function(request, response, next) {
     let locationId = request.body.locationId;
     let respondeBody;
 
-    pool.query("UPDATE strandings SET active=? WHERE stranding_id=? ",
+    pool.query("UPDATE strandings SET active=? WHERE stranding_id=?",
         [request.body.active, strandingId],
         function (error, result) {
             if (error) {
@@ -298,7 +284,7 @@ application.put('/put-stranding', function(request, response, next) {
                 return;
             }
 
-            pool.query("UPDATE locations SET street1=?, street2=?, city=?, county=?, state=?, latitude=?, longitude=? WHERE location_id=? ",
+            pool.query("UPDATE locations SET street1=?, street2=?, city=?, county=?, state=?, latitude=?, longitude=? WHERE location_id=?",
                 [request.body.street1, request.body.street2, request.body.city, request.body.county,
                     request.body.state, request.body.latitude, request.body.longitude, locationId],
                 function (error, result) {
