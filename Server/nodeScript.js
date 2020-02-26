@@ -90,10 +90,10 @@ application.post('/add-mammal', function(request, response, next) {
     let alive = request.body.alive;
     let note = request.body.note;
 
-    let strandingId = 0;
+    let strandingId = request.body.strandingId;
 
     //Insert stranding row
-    pool.query("INSERT INTO mammals (`length`, `sex`, `rehabilitated`, `alive`, `noteZ`, `stranding_id`) VALUES (?, ?, ?, ?, ?, (SELECT stranding_id FROM strandings WHERE stranding_id=?))"
+    pool.query("INSERT INTO mammals (`length`, `sex`, `rehabilitated`, `alive`, `note`, `stranding_id`) VALUES (?, ?, ?, ?, ?, (SELECT stranding_id FROM strandings WHERE stranding_id=?))"
         , [length, sex, rehabilitated, alive, note, strandingId], function (error, result) {
             if (error) {
                 next(error);
@@ -284,9 +284,9 @@ application.put('/put-stranding', function(request, response, next) {
                 return;
             }
 
-            pool.query("UPDATE locations SET street1=?, street2=?, city=?, county=?, state=?, latitude=?, longitude=? WHERE location_id=?",
-                [request.body.street1, request.body.street2, request.body.city, request.body.county,
-                    request.body.state, request.body.latitude, request.body.longitude, locationId],
+            pool.query("UPDATE locations SET city=?, county=?, state=?, latitude=?, longitude=? WHERE location_id=?",
+                [request.body.city, request.body.county, request.body.state, request.body.latitude,
+                    request.body.longitude, locationId],
                 function (error, result) {
                     if (error) {
                         next(error);
