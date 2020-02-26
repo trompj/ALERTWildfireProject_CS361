@@ -244,7 +244,7 @@ application.get('/get-responders', function(request, response, next) {
 
 //Get all locations of strandings
 application.get('/get-stranding-locations', function(request, response, next) {
-    pool.query('SELECT *, GROUP_CONCAT(strandings.stranding_id) FROM strandings LEFT JOIN locations ON strandings.location_id = locations.location_id LEFT JOIN mammals ON strandings.stranding_id = mammals.stranding_id', function (error, rows, fields) {
+    pool.query('SELECT * FROM strandings LEFT JOIN locations ON strandings.location_id = locations.location_id', function (error, rows, fields) {
 
         if (error) {
             next(error);

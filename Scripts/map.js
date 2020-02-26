@@ -22,7 +22,7 @@ map.on('load', function()
     //geolocate.trigger();
 });
 
-map.on('load', function() {
+map.on('load', function(event) {
         let mapGetURL = "http://localhost:39999/get-stranding-locations";
         let getResponders = new XMLHttpRequest();
 
@@ -38,13 +38,10 @@ map.on('load', function() {
                     let strandingPopup = new mapboxgl.Popup({offset: 25}).setHTML (
                         "<p>"+
                         "Stranding Active: " + getResponse[idx].active + "<br>" +
-                        "Alive: " + getResponse[idx].alive + "<br>" +
-                        "Rehabilitated: " + getResponse[idx].rehabilitated + "<br>" +
-                        "Mammal Note: " + getResponse[idx].mammal_note + "<br>" +
                         "City: " + getResponse[idx].city + "<br>" +
                         "County: " + getResponse[idx].county + "<br>" +
                         "State: " + getResponse[idx].state + "<br>" +
-                        "Location Note: " + getResponse[idx].location_note +
+                        "Location Note: " + getResponse[idx].note +
                         "</p>"
                     );
 
