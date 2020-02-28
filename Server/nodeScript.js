@@ -318,8 +318,8 @@ application.post('/add-responder-location', function(request, response, next) {
     let city = request.body.city;
     let state = request.body.state;
     let county = request.body.county;
-    let first_name = request.body.firstname;
-    let last_name = request.body.firstname;
+    let first_name = request.body.first_name;
+    let last_name = request.body.last_name;
 
     //Insert location row
     pool.query("INSERT INTO locations (`street1`, `street2`, `city`, `state`, `county`) VALUES (?, ?, ?, ?, ?)"
