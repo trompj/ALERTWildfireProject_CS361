@@ -310,3 +310,95 @@ application.delete('/delete-responder', function (request, response, next) {
         response.status(200).send();
     });
 });
+
+//Insert location row with FK ID for stranding
+application.post('/add-responder-location', function(request, response, next) {
+    let street1 = request.body.street1;
+    let street2 = request.body.street2;
+    let city = request.body.city;
+    let state = request.body.state;
+    let county = request.body.county;
+    let first_name = request.body.firstname;
+    let last_name = request.body.firstname;
+
+    //Insert location row
+    pool.query("INSERT INTO locations (`street1`, `street2`, `city`, `state`, `county`) VALUES (?, ?, ?, ?, ?)"
+        , [street1, street2, city, state, county], function (error, result) {
+            if (error) {
+                next(error);
+                return;
+            }
+
+            locationId = result.insertId;
+
+            response.status(200).send();
+
+            //Update responder with FK ID for location
+            pool.query("INSERT INTO responders (`first_name`, `last_name`, `location_id`) VALUES (?, ?, ?)",
+                [first_name, last_name, locationId],
+                function (error) {
+                    if (error) {
+                        next(error);
+                        return;
+                    }
+
+                    response.status(200).send();
+                });
+        });
+});
+
+//Insert M:M relationship into strandings_responders table
+application.post('/add-strandings-responders', function(request, response, next) {
+    let responderId = request.body.id;
+    let strandingId = request.body.strandingId;
+
+    //Insert location row
+    pool.query("INSERT INTO strandings_responders (`responder_id`, `stranding_id`) VALUES (?, ?)"
+        , [responderId, strandingId], function (error) {
+            if (error) {
+                next(error);
+                return;
+            }
+
+            response.status(200).send();
+        });
+});
+
+//Get all responders' first and last name
+application.get('/get-responders-names', function(request, response, next) {
+    pool.query("SELECT first_name, last_name FROM responders", function (error, rows) {
+
+        if (error) {
+            next(error);
+            return;
+        }
+
+        response.status(200).send(rows);
+    });
+});
+
+//Get all mammals associated with a stranding ID
+application.get('/get-mammals', function(request, response, next) {
+    pool.query("SELECT * FROM mammals WHERE stranding_id=?", [request.body.strandingId], function (error, rows) {
+
+        if (error) {
+            next(error);
+            return;
+        }
+
+        response.status(200).send(rows);
+    });
+});
+
+//Get all strandings responders associated with a responder ID
+application.get('/get-strandings-responders', function(request, response, next) {
+    pool.query("SELECT * FROM strandings_responders WHERE responder_id=?", [request.body.id], function (error, rows) {
+
+        if (error) {
+            next(error);
+            return;
+        }
+
+        response.status(200).send(rows);
+    });
+});

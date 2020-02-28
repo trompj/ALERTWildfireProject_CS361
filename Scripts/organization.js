@@ -1,4 +1,5 @@
 let responderURL = "http://localhost:39999/get-responders";
+//let responderInsertURL = "http://localhost:39999/add-responder-location";
 let responderPutURL = "http://localhost:39999/put-responders";
 let deleteResponder = "http://localhost:39999/delete-responder";
 
@@ -213,3 +214,30 @@ function deleteResponderRow(hiddenInput, hiddenResponderId) {
 
     deleteRow.send(postBody);
 }
+
+/*function postResponder() {
+    document.getElementById('postResponder').addEventListener('click', function(event) {
+        let postRequest = new XMLHttpRequest();
+
+        let first_name = document.getElementById('first_name').value;
+        let last_name = document.getElementById('last_name').value;
+        let city = document.getElementById('city').value;
+        let state = document.getElementById('state').value;
+        let county = document.getElementById('county').value;
+
+        let postBody = "first_name=" + first_name + "&" + "last_name=" + last_name + "&" + "city=" + city +
+            "&" + "state=" + state + "&" + "county=" + county;
+
+        let apiURL = serverURL + "add-responder-location";
+        postRequest.open("POST", apiURL, true);
+        postRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        postRequest.addEventListener('load', function() {
+
+        });
+
+        postRequest.send(postBody);
+
+        event.preventDefault();
+    })
+}*/
