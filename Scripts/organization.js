@@ -215,6 +215,39 @@ function deleteResponderRow(hiddenInput, hiddenResponderId) {
     deleteRow.send(postBody);
 }
 
+//SECOND METHOD TRIED FOLLOWING THE PROFESSOR'S LECTURES
+/*
+module.exports = function(){
+    var express = require('express');
+    var router = express.Router();
+
+    router.post('/', function(req, res) {
+        var mysql = req.app.get('mysql');
+        var sql1 = "INSERT INTO locations (`street1`, `street2`, `city`, `state`, `county`) VALUES (?, ?, ?, ?, ?)";
+        var inserts1 = [req.body.street1, req.body.street2, req.body.city, req.body.state, req.body.county];
+        sql1 = mysql.pool.query(sql1,inserts1,function(error,results,fields) {
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }else{
+                res.redirect('/organization')
+            }
+        });
+
+        var sql2 = "INSERT INTO resonders (`first_name`, `last_name`) VALUES (?, ?)";
+        var inserts2 = [req.body.firstname, req.body.lastname];
+        sql2 = mysql.pool.query(sql2,inserts2,function(error,results,fields) {
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }else{
+                res.redirect('/organization')
+            }
+        });
+    });
+}*/
+
+//FIRST METHOD TRIED
 /*function postResponder() {
     document.getElementById('postResponder').addEventListener('click', function(event) {
         let postRequest = new XMLHttpRequest();
