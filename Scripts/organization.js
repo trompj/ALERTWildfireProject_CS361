@@ -1,10 +1,13 @@
 let responderURL = "http://localhost:39999/get-responders";
+//let responderInsertURL = "http://localhost:39999/add-responder-location";
 let responderPutURL = "http://localhost:39999/put-responders";
 let deleteResponder = "http://localhost:39999/delete-responder";
+let serverURL = "http://localhost:39999/";
 
 //let url = "http://flip3.engr.oregonstate.edu:36999/";
 
 document.addEventListener('DOMContentLoaded', fillResponderTable);
+document.addEventListener('DOMContentLoaded', postResponder);
 
 function fillResponderTable(event) {
     let getResponders = new XMLHttpRequest();
@@ -212,4 +215,34 @@ function deleteResponderRow(hiddenInput, hiddenResponderId) {
     });
 
     deleteRow.send(postBody);
+}
+
+//FIRST METHOD TRIED
+function postResponder() {
+    document.getElementById('postResponder').addEventListener('click', function(event) {
+        let postRequest = new XMLHttpRequest();
+
+        let first_name = document.getElementById('first_name').value;
+        let last_name = document.getElementById('last_name').value;
+        let city = document.getElementById('city').value;
+        let state = document.getElementById('state').value;
+        let county = document.getElementById('county').value;
+        let street1 = document.getElementById('street1').value;
+        let street2 = document.getElementById('street2').value;
+
+        let postBody = "first_name=" + first_name + "&" + "last_name=" + last_name + "&" + "city=" + city +
+            "&" + "state=" + state + "&" + "county=" + county + "&street1=" + street1 + "&street2=" + street2;
+
+        let apiURL = serverURL + "add-responder-location";
+        postRequest.open("POST", apiURL, true);
+        postRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        postRequest.addEventListener('load', function() {
+
+        });
+
+        postRequest.send(postBody);
+
+        event.preventDefault();
+    })
 }
