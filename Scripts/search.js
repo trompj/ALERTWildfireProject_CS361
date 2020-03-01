@@ -11,7 +11,7 @@ let serverURL = "http://localhost:39999/";
 document.getElementById('update-stranding').addEventListener('click', editStrandingForm);
 document.getElementById('add-mammal').addEventListener('click', addMammalForm);
 document.addEventListener('DOMContentLoaded', populateDropdown);
-document.getElementById('get-mammals').addEventListener('click', searchMammalsPopup);
+document.addEventListener('DOMContentLoaded', searchMammalsPopup);
 
 //Edit row that edit button is in.
 function editStrandingForm() {
@@ -143,7 +143,9 @@ function addMammalForm(event) {
 }
 
 function searchMammalsPopup(event) {
-    let getMammals = new XMLHttpRequest();
+    document.getElementById('findStranding').addEventListener('click', function(event) {
+
+        let getMammals = new XMLHttpRequest();
 
     getMammals.open("GET", searchMammalsURL, true);
     getMammals.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -192,7 +194,7 @@ function searchMammalsPopup(event) {
             console.log("Error in network request: " + getMammals.statusText);
         }
 
-        document.getElementById("search-mammals-overlay").style.display = "block";
+        document.getElementById("search-mammal-overlay").style.display = "block";
         document.getElementById("overlay-background").style.display = "block";
     });
 
@@ -200,6 +202,7 @@ function searchMammalsPopup(event) {
 
     event.preventDefault();
 }
+    )}
 
 function populateDropdown(event) {
     let getResponders = new XMLHttpRequest();
