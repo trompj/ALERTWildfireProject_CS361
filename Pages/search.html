@@ -28,8 +28,8 @@
 <br><h3>Show strandings associated with responder (drop down dynamically populated from responders table)</h3>
 <form>
     <label>Responder:</label>
-    <select class="strandings">
-        <option value="id">Select all</option>
+    <select id="responders">
+        <option>Select all</option>
     </select>
     <input type="submit" value="Search" id="searchStrandings" style="width: 9%; color: white; border-radius: 5px; background-color: dodgerblue;">
 </form>
@@ -57,7 +57,7 @@
 <h3>Show Mammals Associated With Stranding</h3>
 <form>
     <label>Stranding ID: </label>
-    <input type="text" name="strandingId" class="strandingMammalId" placeholder="e.g. 3458">
+    <input type="text" name="strandingId" id="strandingMammalId" placeholder="e.g. 3458">
     <input type="submit" value="Search" id="findStranding" style="width: 9%; color: white; border-radius: 5px; background-color: dodgerblue;">
 </form>
 
@@ -132,6 +132,25 @@
             <input type="text" name="note-edit" id="note-edit">
             <br>
             <input type="submit" id="submit-mammal-edit">
+        </fieldset>
+    </form>
+</div>
+
+<div id="search-mammal-overlay" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%">
+    <form style="background-color: white">
+        <fieldset>
+            <table>
+                <tbody id="mammal-table">
+                <tr>
+                    <th>Mammal ID</th>
+                    <th>Length</th>
+                    <th>Sex</th>
+                    <th>Alive</th>
+                    <th>Rehabilitated</th>
+                    <th>Note</th>
+                </tr>
+                </tbody>
+            </table>
         </fieldset>
     </form>
 </div>

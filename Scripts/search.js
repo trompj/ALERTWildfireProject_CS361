@@ -1,6 +1,8 @@
 let getStrandingURL = "http://localhost:39999/get-stranding";
 let updateStrandingURL = "http://localhost:39999/put-stranding";
 let addMammalURL = "http://localhost:39999/add-mammal";
+let searchMammalsURL = "http://localhost:39999/get-mammals";
+let serverURL = "http://localhost:39999/";
 
 //let getStrandingURL = "http://flip1.engr.oregonstate.edu:39999/get-stranding";
 //let updateStrandingURL = "http://flip1.engr.oregonstate.edu:39999/put-stranding";
@@ -8,6 +10,8 @@ let addMammalURL = "http://localhost:39999/add-mammal";
 
 document.getElementById('update-stranding').addEventListener('click', editStrandingForm);
 document.getElementById('add-mammal').addEventListener('click', addMammalForm);
+document.addEventListener('DOMContentLoaded', populateDropdown);
+document.getElementById('get-mammals').addEventListener('click', searchMammalsPopup);
 
 //Edit row that edit button is in.
 function editStrandingForm() {
@@ -134,6 +138,90 @@ function addMammalForm(event) {
     });
 
     getStranding.send();
+
+    event.preventDefault();
+}
+
+function searchMammalsPopup(event) {
+    let getMammals = new XMLHttpRequest();
+
+    getMammals.open("GET", searchMammalsURL, true);
+    getMammals.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    getMammals.addEventListener('load', function() {
+
+        if (getMammals.status >= 200 && getMammals.status < 400) {
+            let getResponse = JSON.parse(getMammals.responseText);
+
+            let table = document.getElementById("mammal-table");
+
+            for (let idx = 0; idx < getResponse.length; idx++) {
+                //Add data for rows
+                let tableRow = document.createElement('tr');
+
+                let td = document.createElement('td');
+                td.textContent = getResponse[idx].mammal_id;
+                tableRow.appendChild(td);
+
+                td = document.createElement('td');
+                td.textContent = getResponse[idx].length;
+                tableRow.appendChild(td);
+
+                td = document.createElement('td');
+                td.textContent = getResponse[idx].sex;
+                tableRow.appendChild(td);
+
+                td = document.createElement('td');
+                td.textContent = getResponse[idx].alive;
+                tableRow.appendChild(td);
+
+                td = document.createElement('td');
+                td.textContent = getResponse[idx].rehabilitated;
+                tableRow.appendChild(td);
+
+                td = document.createElement('td');
+                td.textContent = getResponse[idx].note;
+                tableRow.appendChild(td);
+
+                td.appendChild(form);
+                tableRow.appendChild(td);
+                table.appendChild(tableRow);
+            }
+        }
+        else {
+            console.log("Error in network request: " + getMammals.statusText);
+        }
+
+        document.getElementById("search-mammals-overlay").style.display = "block";
+        document.getElementById("overlay-background").style.display = "block";
+    });
+
+    getMammals.send();
+
+    event.preventDefault();
+}
+
+function populateDropdown(event) {
+    let getResponders = new XMLHttpRequest();
+    let getResponderNamesURL = serverURL + "get-responders-names";
+    getResponders.open("GET", getResponderNamesURL, true);
+    getResponders.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    getResponders.addEventListener('load', function() {
+        if (getResponders.status >= 200 && getResponders.status < 400) {
+            let getResponse = JSON.parse(getResponders.responseText);
+
+            var dropdown1 = document.getElementById("responders");
+            var dropdown2 = document.getElementById("strandings");
+
+            // Loop through the list returned by SELECT query
+            for (var i = 0; i < getResponse.length; ++i) {
+                dropdown1[dropdown1.length] = new Option(getResponse[i].first_name + " " + getResponse[i].last_name);
+                dropdown2[dropdown2.length] = new Option(getResponse[i].first_name + " " + getResponse[i].last_name);
+            }
+        }
+    });
+
+    getResponders.send();
 
     event.preventDefault();
 }
