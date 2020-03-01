@@ -242,7 +242,5 @@ function postResponder() {
         });
 
         postRequest.send(postBody);
-
-        event.preventDefault();
     })
 }
