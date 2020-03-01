@@ -379,7 +379,7 @@ application.get('/get-responders-names', function(request, response, next) {
 
 //Get all mammals associated with a stranding ID
 application.get('/get-mammals', function(request, response, next) {
-    pool.query("SELECT * FROM mammals WHERE stranding_id=?", [request.body.strandingId], function (error, rows) {
+    pool.query("SELECT * FROM mammals WHERE stranding_id=?", [request.query.strandingId], function (error, rows) {
 
         if (error) {
             next(error);

@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19929e3c-db09-482e-973e-80a4f5ee3eaa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c72b018c-4dac-4de3-b3f3-14b989327e38.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c72b018c-4dac-4de3-b3f3-14b989327e38.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/organization.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/organization.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/organization.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/organization.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/search.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/nodeScript.js" beforeDir="false" afterPath="$PROJECT_DIR$/Server/nodeScript.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -64,17 +62,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/nodeScript.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="318" column="35" lean-forward="true" selection-start-line="318" selection-start-column="35" selection-end-line="318" selection-end-column="35" />
+            <state relative-caret-position="203">
+              <caret line="395" lean-forward="true" selection-start-line="395" selection-end-line="395" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scripts/organization.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+            <state relative-caret-position="98">
+              <caret line="232" column="54" selection-start-line="232" selection-start-column="53" selection-end-line="232" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -83,7 +81,7 @@
         <entry file="file://$PROJECT_DIR$/Scripts/login.js">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="10" selection-start-column="10" selection-end-column="10" />
+              <caret column="21" selection-start-column="21" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -91,10 +89,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Pages/organization.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+            <state relative-caret-position="222">
+              <caret line="58" column="26" lean-forward="true" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
               <folding>
-                <element signature="n#style#0;n#button#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#form#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -104,9 +101,30 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Pages/search.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2845">
+              <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+              <folding>
+                <element signature="n#style#0;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Scripts/search.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="86">
+              <caret line="187" column="49" selection-start-line="187" selection-start-column="49" selection-end-line="187" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Pages/report.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="159">
               <caret line="54" column="35" selection-start-line="54" selection-end-line="55" />
               <folding>
                 <element signature="n#style#0;n#a#2;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -128,17 +146,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Update stranding by</find>
-      <find>get</find>
-      <find>post</find>
-      <find>mammal</find>
-      <find>overla</find>
-      <find>add-ma</find>
-      <find>SELEC</find>
-      <find>add-mamm</find>
-      <find>URL</find>
-      <find>getRequ</find>
-      <find>Add</find>
       <find>add resp</find>
       <find>serverURL</find>
       <find>INSERT</find>
@@ -158,6 +165,17 @@
       <find>add-location</find>
       <find>postRespon</find>
       <find>add-respon</find>
+      <find>get-mamma</find>
+      <find>get-</find>
+      <find>search-mammal</find>
+      <find>click</find>
+      <find>&amp;</find>
+      <find>GET</find>
+      <find>&quot;GET&quot;</find>
+      <find>get-stranding</find>
+      <find>?stra</find>
+      <find>get-mammal</find>
+      <find>get-mammals</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -185,16 +203,16 @@
         <option value="$PROJECT_DIR$/Pages/search.html" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/c72b018c-4dac-4de3-b3f3-14b989327e38/console.sql" />
         <option value="$PROJECT_DIR$/G23_DMQueries.sql" />
-        <option value="$PROJECT_DIR$/Scripts/search.js" />
         <option value="$PROJECT_DIR$/Scripts/map.js" />
         <option value="$PROJECT_DIR$/Pages/organization.html" />
         <option value="$PROJECT_DIR$/Scripts/organization.js" />
         <option value="$PROJECT_DIR$/Server/nodeScript.js" />
+        <option value="$PROJECT_DIR$/Scripts/search.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="132" />
+    <option name="x" value="68" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="838" />
@@ -268,10 +286,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.organization.html">
-    <configuration name="map.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63344/MarineMammalStranding_CS340/Pages/map.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="JavaScript Debug.search.html">
     <configuration name="organization.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63344/MarineMammalStranding_CS340/Pages/organization.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -284,13 +299,16 @@
     <configuration name="organization.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Scripts/organization.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
+    <configuration name="search.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Scripts/search.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.organization.html" />
-        <item itemvalue="Node.js.nodeScript.js" />
-        <item itemvalue="Node.js.organization.js" />
-        <item itemvalue="JavaScript Debug.map.html" />
         <item itemvalue="JavaScript Debug.search.html" />
+        <item itemvalue="Node.js.nodeScript.js" />
+        <item itemvalue="Node.js.search.js" />
+        <item itemvalue="JavaScript Debug.organization.html" />
+        <item itemvalue="Node.js.organization.js" />
       </list>
     </recent_temporary>
   </component>
@@ -322,23 +340,23 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107235000" />
+    <option name="totallyTimeSpent" value="114405000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="132" y="23" width="1440" height="838" extended-state="0" />
+    <frame x="68" y="23" width="1440" height="838" extended-state="0" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.14949928" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.15522175" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.32918397" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.35550788" side_tool="true" visible="true" weight="0.40136987" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.35550788" side_tool="true" weight="0.32054794" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Docker" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32876712" />
       <window_info anchor="bottom" id="Run" order="6" sideWeight="0.8161659" weight="0.5082192" />
-      <window_info active="true" anchor="bottom" id="Debug" order="7" sideWeight="0.64449215" visible="true" weight="0.40136987" />
+      <window_info active="true" anchor="bottom" id="Debug" order="7" sideWeight="0.64449215" visible="true" weight="0.47534245" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -347,7 +365,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.24606581" />
+      <window_info anchor="right" id="Database" order="3" weight="0.24606581" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -528,37 +546,37 @@
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/Scripts/search.js</url>
-          <line>23</line>
+          <line>27</line>
           <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/Scripts/search.js</url>
-          <line>40</line>
+          <line>44</line>
           <option name="timeStamp" value="106" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/Scripts/search.js</url>
-          <line>42</line>
+          <line>46</line>
           <option name="timeStamp" value="107" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/Scripts/search.js</url>
-          <line>39</line>
+          <line>43</line>
           <option name="timeStamp" value="108" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/Scripts/search.js</url>
-          <line>56</line>
+          <line>60</line>
           <option name="timeStamp" value="109" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/Scripts/search.js</url>
-          <line>84</line>
+          <line>88</line>
           <option name="timeStamp" value="113" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/Scripts/search.js</url>
-          <line>93</line>
+          <line>98</line>
           <option name="timeStamp" value="114" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
@@ -568,12 +586,12 @@
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/Scripts/search.js</url>
-          <line>131</line>
+          <line>136</line>
           <option name="timeStamp" value="116" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/Scripts/search.js</url>
-          <line>116</line>
+          <line>121</line>
           <option name="timeStamp" value="118" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
@@ -584,44 +602,73 @@
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/Server/nodeScript.js</url>
           <line>275</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="120" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/Server/nodeScript.js</url>
           <line>124</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="121" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/Scripts/map.js</url>
           <line>35</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="122" />
         </line-breakpoint>
         <line-breakpoint type="javascript">
           <url>file://$PROJECT_DIR$/Scripts/organization.js</url>
           <line>222</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="123" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/Scripts/organization.js</url>
           <line>224</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="124" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/Scripts/organization.js</url>
           <line>14</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="125" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/Server/nodeScript.js</url>
           <line>315</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="126" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Scripts/search.js</url>
+          <line>148</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="128" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Scripts/search.js</url>
+          <line>156</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="130" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Server/nodeScript.js</url>
+          <line>388</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="131" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Scripts/search.js</url>
+          <line>146</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="132" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Server/nodeScript.js</url>
+          <line>383</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="133" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Scripts/search.js</url>
+          <line>93</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="135" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -728,33 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Pages/search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="65" column="18" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#a#4;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#form#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#form#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#form#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#2;n#form#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#form#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/strandingReport.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -783,12 +803,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/G23_DMQueries.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/G23_DMQueries.sql" />
     <entry file="file://$PROJECT_DIR$/Pages/report.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="159">
           <caret line="54" column="35" selection-start-line="54" selection-end-line="55" />
           <folding>
             <element signature="n#style#0;n#a#2;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -798,12 +816,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="21" selection-start-column="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="6083" column="4" selection-start-line="6083" selection-start-column="4" selection-end-line="6083" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/organization.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="232" column="54" selection-start-line="232" selection-start-column="53" selection-end-line="232" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Pages/organization.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+        <state relative-caret-position="222">
+          <caret line="58" column="26" lean-forward="true" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
           <folding>
-            <element signature="n#style#0;n#button#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#form#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -811,24 +849,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="10" selection-start-column="10" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Server/nodeScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="318" column="35" lean-forward="true" selection-start-line="318" selection-start-column="35" selection-end-line="318" selection-end-column="35" />
+        <state relative-caret-position="203">
+          <caret line="395" lean-forward="true" selection-start-line="395" selection-end-line="395" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/organization.js">
+    <entry file="file://$PROJECT_DIR$/Pages/search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+        <state relative-caret-position="-2845">
+          <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+          <folding>
+            <element signature="n#style#0;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="187" column="49" selection-start-line="187" selection-start-column="49" selection-end-line="187" selection-end-column="49" />
         </state>
       </provider>
     </entry>
