@@ -144,65 +144,68 @@ function addMammalForm(event) {
 }
 
 function searchMammalsPopup(event) {
+
     document.getElementById('findStranding').addEventListener('click', function(event) {
 
-            let getMammals = new XMLHttpRequest();
+        let strandingId = document.getElementById("strandingMammalId").value;
 
-            let URL = searchMammalsURL + "?strandingId=2";
-            getMammals.open("GET", URL, true);
-            getMammals.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        let getMammals = new XMLHttpRequest();
 
-            getMammals.addEventListener('load', function() {
+        let URL = searchMammalsURL + "?strandingId=" + strandingId;
+        getMammals.open("GET", URL, true);
+        getMammals.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-                if (getMammals.status >= 200 && getMammals.status < 400) {
-                    let getResponse = JSON.parse(getMammals.responseText);
+        getMammals.addEventListener('load', function() {
 
-                    let table = document.getElementById("mammal-table");
+            if (getMammals.status >= 200 && getMammals.status < 400) {
+                let getResponse = JSON.parse(getMammals.responseText);
 
-                    for (let idx = 0; idx < getResponse.length; idx++) {
-                        //Add data for rows
-                        let tableRow = document.createElement('tr');
+                let table = document.getElementById("mammal-table");
 
-                        let td = document.createElement('td');
-                        td.textContent = getResponse[idx].mammal_id;
-                        tableRow.appendChild(td);
+                for (let idx = 0; idx < getResponse.length; idx++) {
+                    //Add data for rows
+                    let tableRow = document.createElement('tr');
 
-                        td = document.createElement('td');
-                        td.textContent = getResponse[idx].length;
-                        tableRow.appendChild(td);
+                    let td = document.createElement('td');
+                    td.textContent = getResponse[idx].mammal_id;
+                    tableRow.appendChild(td);
 
-                        td = document.createElement('td');
-                        td.textContent = getResponse[idx].sex;
-                        tableRow.appendChild(td);
+                    td = document.createElement('td');
+                    td.textContent = getResponse[idx].length;
+                    tableRow.appendChild(td);
 
-                        td = document.createElement('td');
-                        td.textContent = getResponse[idx].alive;
-                        tableRow.appendChild(td);
+                    td = document.createElement('td');
+                    td.textContent = getResponse[idx].sex;
+                    tableRow.appendChild(td);
 
-                        td = document.createElement('td');
-                        td.textContent = getResponse[idx].rehabilitated;
-                        tableRow.appendChild(td);
+                    td = document.createElement('td');
+                    td.textContent = getResponse[idx].alive;
+                    tableRow.appendChild(td);
 
-                        td = document.createElement('td');
-                        td.textContent = getResponse[idx].note;
-                        tableRow.appendChild(td);
+                    td = document.createElement('td');
+                    td.textContent = getResponse[idx].rehabilitated;
+                    tableRow.appendChild(td);
 
-                        table.appendChild(tableRow);
-                    }
+                    td = document.createElement('td');
+                    td.textContent = getResponse[idx].note;
+                    tableRow.appendChild(td);
+
+                    table.appendChild(tableRow);
                 }
-                else {
-                    console.log("Error in network request: " + getMammals.statusText);
-                }
+            }
+            else {
+                console.log("Error in network request: " + getMammals.statusText);
+            }
 
-                document.getElementById("search-mammal-overlay").style.display = "block";
-                document.getElementById("overlay-background").style.display = "block";
-            });
+            document.getElementById("search-mammal-overlay").style.display = "block";
+            document.getElementById("overlay-background").style.display = "block";
+        });
 
-            getMammals.send();
+        getMammals.send();
 
-            event.preventDefault();
-    }
-    )}
+        event.preventDefault();
+    })
+}
 
     function populateDropdown(event) {
         let getResponders = new XMLHttpRequest();
