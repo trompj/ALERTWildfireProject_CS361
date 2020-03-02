@@ -16,8 +16,6 @@ document.addEventListener('DOMContentLoaded', searchMammalsPopup);
 document.addEventListener('DOMContentLoaded', searchStrandingsPopup);
 document.addEventListener('DOMContentLoaded', postStrandingsResponders);
 
-
-
 //Edit row that edit button is in.
 function editStrandingForm() {
     //Get the stranding
@@ -236,11 +234,11 @@ function searchStrandingsPopup(event) {
                     let tableRow = document.createElement('tr');
 
                     let td = document.createElement('td');
-                    td.textContent = getResponse[idx].stranding_id;
+                    td.textContent = getResponse[idx].responder_id;
                     tableRow.appendChild(td);
 
                     td = document.createElement('td');
-                    td.textContent = getResponse[idx].responder_id;
+                    td.textContent = getResponse[idx].stranding_id;
                     tableRow.appendChild(td);
 
                     table.appendChild(tableRow);
@@ -311,4 +309,18 @@ function populateDropdown(event) {
     getResponders.send();
 
     event.preventDefault();
+}
+
+function closeMammals() {
+    document.getElementById("search-mammal-overlay").style.display = "none";
+    document.getElementById("overlay-background").style.display = "none";
+
+    location.reload();
+}
+
+function closeStrandings() {
+    document.getElementById("strandings-responders-overlay").style.display = "none";
+    document.getElementById("overlay-background").style.display = "none";
+
+    location.reload();
 }
