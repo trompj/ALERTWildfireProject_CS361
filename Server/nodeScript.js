@@ -366,7 +366,7 @@ application.post('/add-strandings-responders', function(request, response, next)
 
 //Get all responders' first and last name
 application.get('/get-responders-names', function(request, response, next) {
-    pool.query("SELECT first_name, last_name FROM responders", function (error, rows) {
+    pool.query("SELECT responder_id, first_name, last_name FROM responders", function (error, rows) {
 
         if (error) {
             next(error);
@@ -392,7 +392,7 @@ application.get('/get-mammals', function(request, response, next) {
 
 //Get all strandings responders associated with a responder ID
 application.get('/get-strandings-responders', function(request, response, next) {
-    pool.query("SELECT * FROM strandings_responders WHERE responder_id=?", [request.body.id], function (error, rows) {
+    pool.query("SELECT * FROM strandings_responders WHERE responder_id=?", [request.query.responderId], function (error, rows) {
 
         if (error) {
             next(error);

@@ -220,7 +220,7 @@ function searchStrandingsPopup(event) {
 
         let getStrandings = new XMLHttpRequest();
 
-        let URL = strandingsRespondersURL + "?responder=" + responder;
+        let URL = strandingsRespondersURL + "?responderId=" + responder;
         getStrandings.open("GET", URL, true);
         getStrandings.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
@@ -295,8 +295,10 @@ function populateDropdown(event) {
 
             // Loop through the list returned by SELECT query
             for (var i = 0; i < getResponse.length; ++i) {
-                dropdown1[dropdown1.length] = new Option(getResponse[i].first_name + " " + getResponse[i].last_name);
-                dropdown2[dropdown2.length] = new Option(getResponse[i].first_name + " " + getResponse[i].last_name);
+                dropdown1[dropdown1.length] = new Option(getResponse[i].first_name + " " +
+                    getResponse[i].last_name, getResponse[i].responder_id);
+                dropdown2[dropdown2.length] = new Option(getResponse[i].first_name + " " +
+                    getResponse[i].last_name, getResponse[i].responder_id);
             }
         }
     });
