@@ -260,11 +260,12 @@ function searchStrandingsPopup(event) {
     })
 }
 
-function postStrandingsResponders() {
+function postStrandingsResponders(event) {
     document.getElementById('addResponder').addEventListener('click', function(event) {
         let postRequest = new XMLHttpRequest();
 
-        let responderId = document.getElementById('first_name').value;
+        let dropdown = document.getElementById("strandings");
+        let responderId = dropdown.options[dropdown.selectedIndex].value;
         let strandingId = document.getElementById('strandingIdInput').value;
 
         let postBody = "responderId=" + responderId + "&" + "strandingId=" + strandingId;
@@ -274,10 +275,14 @@ function postStrandingsResponders() {
         postRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
         postRequest.addEventListener('load', function() {
-
+            if (postRequest.status >= 200 && postRequest.status < 400) {
+                alert("Responder was successfully added to stranding.")
+            }
         });
 
         postRequest.send(postBody);
+
+        event.preventDefault();
     })
 }
 

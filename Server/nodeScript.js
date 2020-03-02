@@ -349,7 +349,7 @@ application.post('/add-responder-location', function(request, response, next) {
 
 //Insert M:M relationship into strandings_responders table
 application.post('/add-strandings-responders', function(request, response, next) {
-    let responderId = request.body.id;
+    let responderId = request.body.responderId;
     let strandingId = request.body.strandingId;
 
     //Insert location row
