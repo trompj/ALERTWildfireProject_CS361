@@ -70,7 +70,7 @@
         <option value="id">Select all</option>
     </select><br>
     <label>Stranding ID: </label>
-    <input type="text" name="strandingId" class="strandingMammalId" placeholder="e.g. 3458">
+    <input type="text" id="strandingIdInput" class="strandingMammalId" placeholder="e.g. 3458">
     <input type="submit" value="Add Responder" id="addResponder" style="width: 9%; color: white; border-radius: 5px; background-color: dodgerblue;">
     <input type="submit" value="Remove Responder" id="removeResponder" style="width: 9%; color: white; border-radius: 5px; background-color: dodgerblue;">
 </form>
@@ -148,6 +148,21 @@
                     <th>Alive</th>
                     <th>Rehabilitated</th>
                     <th>Note</th>
+                </tr>
+                </tbody>
+            </table>
+        </fieldset>
+    </form>
+</div>
+
+<div id="strandings-responders-overlay" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%">
+    <form style="background-color: white">
+        <fieldset>
+            <table>
+                <tbody id="strandings-responders-table">
+                <tr>
+                    <th>Responder ID</th>
+                    <th>Stranding ID</th>
                 </tr>
                 </tbody>
             </table>

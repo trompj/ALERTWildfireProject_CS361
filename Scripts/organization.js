@@ -217,7 +217,6 @@ function deleteResponderRow(hiddenInput, hiddenResponderId) {
     deleteRow.send(postBody);
 }
 
-//FIRST METHOD TRIED
 function postResponder() {
     document.getElementById('postResponder').addEventListener('click', function(event) {
         let postRequest = new XMLHttpRequest();

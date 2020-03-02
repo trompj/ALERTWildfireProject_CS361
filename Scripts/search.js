@@ -2,6 +2,7 @@ let getStrandingURL = "http://localhost:39999/get-stranding";
 let updateStrandingURL = "http://localhost:39999/put-stranding";
 let addMammalURL = "http://localhost:39999/add-mammal";
 let searchMammalsURL = "http://localhost:39999/get-mammals";
+let strandingsRespondersURL = "http://localhost:39999/get-strandings-responders";
 let serverURL = "http://localhost:39999/";
 
 //let getStrandingURL = "http://flip1.engr.oregonstate.edu:39999/get-stranding";
@@ -12,6 +13,10 @@ document.getElementById('update-stranding').addEventListener('click', editStrand
 document.getElementById('add-mammal').addEventListener('click', addMammalForm);
 document.addEventListener('DOMContentLoaded', populateDropdown);
 document.addEventListener('DOMContentLoaded', searchMammalsPopup);
+document.addEventListener('DOMContentLoaded', searchStrandingsPopup);
+document.addEventListener('DOMContentLoaded', postStrandingsResponders);
+
+
 
 //Edit row that edit button is in.
 function editStrandingForm() {
@@ -207,27 +212,96 @@ function searchMammalsPopup(event) {
     })
 }
 
-    function populateDropdown(event) {
-        let getResponders = new XMLHttpRequest();
-        let getResponderNamesURL = serverURL + "get-responders-names";
-        getResponders.open("GET", getResponderNamesURL, true);
-        getResponders.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        getResponders.addEventListener('load', function() {
-            if (getResponders.status >= 200 && getResponders.status < 400) {
-                let getResponse = JSON.parse(getResponders.responseText);
+function searchStrandingsPopup(event) {
 
-                var dropdown1 = document.getElementById("responders");
-                var dropdown2 = document.getElementById("strandings");
+    document.getElementById('searchStrandings').addEventListener('click', function(event) {
 
-                // Loop through the list returned by SELECT query
-                for (var i = 0; i < getResponse.length; ++i) {
-                    dropdown1[dropdown1.length] = new Option(getResponse[i].first_name + " " + getResponse[i].last_name);
-                    dropdown2[dropdown2.length] = new Option(getResponse[i].first_name + " " + getResponse[i].last_name);
+        let responder = document.getElementById("responders").value;
+
+        let getStrandings = new XMLHttpRequest();
+
+        let URL = strandingsRespondersURL + "?responder=" + responder;
+        getStrandings.open("GET", URL, true);
+        getStrandings.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        getStrandings.addEventListener('load', function() {
+
+            if (getStrandings.status >= 200 && getStrandings.status < 400) {
+                let getResponse = JSON.parse(getStrandings.responseText);
+
+                let table = document.getElementById("strandings-responders-table");
+
+                for (let idx = 0; idx < getResponse.length; idx++) {
+                    //Add data for rows
+                    let tableRow = document.createElement('tr');
+
+                    let td = document.createElement('td');
+                    td.textContent = getResponse[idx].stranding_id;
+                    tableRow.appendChild(td);
+
+                    td = document.createElement('td');
+                    td.textContent = getResponse[idx].responder_id;
+                    tableRow.appendChild(td);
+
+                    table.appendChild(tableRow);
                 }
             }
+            else {
+                console.log("Error in network request: " + getStrandings.statusText);
+            }
+
+            document.getElementById("strandings-responders-overlay").style.display = "block";
+            document.getElementById("overlay-background").style.display = "block";
         });
 
-        getResponders.send();
+        getStrandings.send();
 
         event.preventDefault();
+    })
+}
+
+function postStrandingsResponders() {
+    document.getElementById('addResponder').addEventListener('click', function(event) {
+        let postRequest = new XMLHttpRequest();
+
+        let responderId = document.getElementById('first_name').value;
+        let strandingId = document.getElementById('strandingIdInput').value;
+
+        let postBody = "responderId=" + responderId + "&" + "strandingId=" + strandingId;
+
+        let apiURL = serverURL + "add-strandings-responders";
+        postRequest.open("POST", apiURL, true);
+        postRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        postRequest.addEventListener('load', function() {
+
+        });
+
+        postRequest.send(postBody);
+    })
+}
+
+function populateDropdown(event) {
+    let getResponders = new XMLHttpRequest();
+    let getResponderNamesURL = serverURL + "get-responders-names";
+    getResponders.open("GET", getResponderNamesURL, true);
+    getResponders.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    getResponders.addEventListener('load', function() {
+        if (getResponders.status >= 200 && getResponders.status < 400) {
+            let getResponse = JSON.parse(getResponders.responseText);
+
+            var dropdown1 = document.getElementById("responders");
+            var dropdown2 = document.getElementById("strandings");
+
+            // Loop through the list returned by SELECT query
+            for (var i = 0; i < getResponse.length; ++i) {
+                dropdown1[dropdown1.length] = new Option(getResponse[i].first_name + " " + getResponse[i].last_name);
+                dropdown2[dropdown2.length] = new Option(getResponse[i].first_name + " " + getResponse[i].last_name);
+            }
+        }
+    });
+
+    getResponders.send();
+
+    event.preventDefault();
 }
