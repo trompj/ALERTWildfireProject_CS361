@@ -1,4 +1,6 @@
 //API DOC REFERENCE USED: https://docs.mapbox.com/mapbox-gl-js/example/set-popup/
+// let mapGetURL = "http://localhost:39999/get-stranding-locations";
+let mapGetURL = "http://flip1.engr.oregonstate.edu:39999/get-stranding-locations";
 
 mapboxgl.accessToken = 'pk.eyJ1IjoianJ0MjI1IiwiYSI6ImNqcWJzMGVvcjA2Nng0MnFvNHIwdnc5YnYifQ.OZxuEOysWuDEmYUAWdTELA';
 let map = new mapboxgl.Map({
@@ -23,7 +25,6 @@ map.on('load', function()
 });
 
 map.on('load', function(event) {
-        let mapGetURL = "http://localhost:39999/get-stranding-locations";
         let getResponders = new XMLHttpRequest();
 
         getResponders.open("GET", mapGetURL, true);

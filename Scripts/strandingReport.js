@@ -2,8 +2,8 @@
 Reference: https://www.w3schools.com/html/html5_geolocation.asp
 */
 
-let serverURL = "http://localhost:39999/";
-//let url = "http://flip3.engr.oregonstate.edu:36999/";
+// let serverURL = "http://localhost:39999/";
+let serverURL = "http://flip1.engr.oregonstate.edu:39999/";
 
 document.getElementById('get-location').addEventListener('click', getLocation);
 document.addEventListener('DOMContentLoaded', postStranding);
