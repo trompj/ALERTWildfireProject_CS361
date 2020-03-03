@@ -194,6 +194,15 @@ function searchMammalsPopup(event) {
                     tableRow.appendChild(td);
 
                     table.appendChild(tableRow);
+
+                    document.getElementById("closeMammals").addEventListener('click', function(event) {
+                        let rows = table.rows;
+                        for (let i = 1; i < rows.length; i++) {
+                            table.deleteRow(i);
+                        }
+                        document.getElementById("search-mammal-overlay").style.display = "none";
+                        document.getElementById("overlay-background").style.display = "none";
+                    })
                 }
             }
             else {
@@ -242,6 +251,15 @@ function searchStrandingsPopup(event) {
                     tableRow.appendChild(td);
 
                     table.appendChild(tableRow);
+
+                    document.getElementById("closeStrandings").addEventListener('click', function(event) {
+                        let rows = table.rows;
+                        for (let i = 1; i < rows.length; i++) {
+                            table.deleteRow(i);
+                        }
+                        document.getElementById("strandings-responders-overlay").style.display = "none";
+                        document.getElementById("overlay-background").style.display = "none";
+                    })
                 }
             }
             else {
@@ -309,18 +327,4 @@ function populateDropdown(event) {
     getResponders.send();
 
     event.preventDefault();
-}
-
-function closeMammals() {
-    document.getElementById("search-mammal-overlay").style.display = "none";
-    document.getElementById("overlay-background").style.display = "none";
-
-    location.reload();
-}
-
-function closeStrandings() {
-    document.getElementById("strandings-responders-overlay").style.display = "none";
-    document.getElementById("overlay-background").style.display = "none";
-
-    location.reload();
 }
