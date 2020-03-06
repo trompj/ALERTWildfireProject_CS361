@@ -1,14 +1,14 @@
-// let getStrandingURL = "http://localhost:39999/get-stranding";
+let getStrandingURL = "http://localhost:39999/get-stranding";
 // let updateStrandingURL = "http://localhost:39999/put-stranding";
-// let addMammalURL = "http://localhost:39999/add-mammal";
-// let searchMammalsURL = "http://localhost:39999/get-mammals";
+let addMammalURL = "http://localhost:39999/add-mammal";
+let searchMammalsURL = "http://localhost:39999/get-mammals";
 // let strandingsRespondersURL = "http://localhost:39999/get-strandings-responders";
 // let serverURL = "http://localhost:39999/";
 
-let getStrandingURL = "http://flip1.engr.oregonstate.edu:39999/get-stranding";
+//let getStrandingURL = "http://flip1.engr.oregonstate.edu:39999/get-stranding";
 let updateStrandingURL = "http://flip1.engr.oregonstate.edu:39999/put-stranding";
-let addMammalURL = "http://flip1.engr.oregonstate.edu:39999/add-mammal";
-let searchMammalsURL = "http://flip1.engr.oregonstate.edu:39999/get-mammals";
+//let addMammalURL = "http://flip1.engr.oregonstate.edu:39999/add-mammal";
+//let searchMammalsURL = "http://flip1.engr.oregonstate.edu:39999/get-mammals";
 let strandingsRespondersURL = "http://flip1.engr.oregonstate.edu:39999/get-strandings-responders";
 let serverURL = "http://flip1.engr.oregonstate.edu:39999/";
 
@@ -82,6 +82,9 @@ function editStrandingForm() {
 
             document.getElementById("submit-edit").addEventListener('click', submitEdit);
         }
+        else {
+            alert("Stranding ID Not Found")
+        }
     });
 
     getStranding.send();
@@ -141,6 +144,9 @@ function addMammalForm(event) {
             };
 
             document.getElementById("submit-mammal-edit").addEventListener('click', submitMammalEdit);
+        }
+        else {
+            alert("Stranding ID Not Found")
         }
     });
 
@@ -207,13 +213,14 @@ function searchMammalsPopup(event) {
                         document.getElementById("overlay-background").style.display = "none";
                     })
                 }
+
+                document.getElementById("search-mammal-overlay").style.display = "block";
+                document.getElementById("overlay-background").style.display = "block";
             }
             else {
                 console.log("Error in network request: " + getMammals.statusText);
+                alert("Stranding ID Not Found");
             }
-
-            document.getElementById("search-mammal-overlay").style.display = "block";
-            document.getElementById("overlay-background").style.display = "block";
         });
 
         getMammals.send();

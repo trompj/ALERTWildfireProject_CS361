@@ -265,7 +265,12 @@ application.get('/get-stranding', function(request, response, next) {
             return;
         }
 
-        response.status(200).send(rows);
+        if (rows.length === 0) {
+            response.status(400).send()
+        }
+        else {
+            response.status(200).send(rows);
+        }
     });
 });
 
@@ -382,10 +387,17 @@ application.get('/get-mammals', function(request, response, next) {
 
         if (error) {
             next(error);
+            response.status(400).send();
             return;
         }
 
-        response.status(200).send(rows);
+        if (rows.length === 0) {
+            response.status(400).send();
+        }
+        else {
+            response.status(200).send(rows);
+        }
+
     });
 });
 
