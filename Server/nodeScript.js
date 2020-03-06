@@ -126,12 +126,11 @@ application.post('/add-stranding', function(request, response, next) {
             , [city, state, county, longitude, latitude, locationNote], function (error, result) {
                 if (error) {
                     next(error);
+                    response.status(400).send();
                     return;
                 }
 
                 locationId = result.insertId;
-
-                response.status(200).send();
 
                 //Update stranding with FK ID for location
                 pool.query("INSERT INTO strandings (`active`, `location_id`) VALUES (?, ?)",
@@ -139,25 +138,25 @@ application.post('/add-stranding', function(request, response, next) {
                     function (error, result) {
                         if (error) {
                             next(error);
+                            response.status(400).send();
                             return;
                         }
 
                         strandingId = result.insertId;
-
-                        response.status(200).send();
 
                         //Insert mammal row
                         pool.query("INSERT INTO mammals (`note`, `alive`, `stranding_id`) VALUES (?, ?, ?)"
                             , [mammalNote, alive, strandingId], function (error, result) {
                                 if (error) {
                                     next(error);
+                                    response.status(400).send();
                                     return;
                                 }
 
-                                response.status(200).send();
-                        });
+                                response.status(200).send(strandingId.toString());
+                            });
                 });
-        });
+         });
 });
 
 //Not currently in use, would be used for a login
