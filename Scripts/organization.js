@@ -224,25 +224,61 @@ function postResponder() {
     document.getElementById('postResponder').addEventListener('click', function(event) {
         let postRequest = new XMLHttpRequest();
 
+        let error = false;
+        //Set all validation fields to default
+        document.getElementById("first_name").style.borderColor = "black";
+        document.getElementById("last_name").style.borderColor = "black";
+        document.getElementById("state").style.borderColor = "black";
+        document.getElementById("county").style.borderColor = "black";
+
+
         let first_name = document.getElementById('first_name').value;
+        if (first_name === "") {
+            document.getElementById("first_name").style.borderColor = "red";
+            error = true;
+        }
+
         let last_name = document.getElementById('last_name').value;
+        if (last_name === "") {
+            document.getElementById("last_name").style.borderColor = "red";
+            error = true;
+        }
+
         let city = document.getElementById('city').value;
+
         let state = document.getElementById('state').value;
+        if (state === "") {
+            document.getElementById("state").style.borderColor = "red";
+            error = true;
+        }
+
         let county = document.getElementById('county').value;
-        let street1 = document.getElementById('street1').value;
-        let street2 = document.getElementById('street2').value;
+        if (county === "") {
+            document.getElementById("county").style.borderColor = "red";
+            error = true;
+        }
 
-        let postBody = "first_name=" + first_name + "&" + "last_name=" + last_name + "&" + "city=" + city +
-            "&" + "state=" + state + "&" + "county=" + county + "&street1=" + street1 + "&street2=" + street2;
+        if (error !== true) {
+            let street1 = document.getElementById('street1').value;
+            let street2 = document.getElementById('street2').value;
 
-        let apiURL = serverURL + "add-responder-location";
-        postRequest.open("POST", apiURL, true);
-        postRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            let postBody = "first_name=" + first_name + "&" + "last_name=" + last_name + "&" + "city=" + city +
+                "&" + "state=" + state + "&" + "county=" + county + "&street1=" + street1 + "&street2=" + street2;
 
-        postRequest.addEventListener('load', function() {
+            let apiURL = serverURL + "add-responder-location";
+            postRequest.open("POST", apiURL, true);
+            postRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-        });
+            postRequest.addEventListener('load', function () {
+                if (postRequest.status >= 400) {
+                    alert("Failed to add responder")
+                }
+            });
 
-        postRequest.send(postBody);
+            postRequest.send(postBody);
+        }
+        else {
+            event.preventDefault();
+        }
     })
 }

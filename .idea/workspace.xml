@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19929e3c-db09-482e-973e-80a4f5ee3eaa" name="Default Changelist" comment="" />
+    <list default="true" id="19929e3c-db09-482e-973e-80a4f5ee3eaa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/organization.html" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/organization.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/organization.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/organization.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/strandingReport.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/strandingReport.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -64,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scripts/strandingReport.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+            <state relative-caret-position="329">
+              <caret line="104" selection-start-line="96" selection-end-line="104" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -79,46 +84,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scripts/search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3795">
+            <state relative-caret-position="624">
               <caret line="165" column="18" selection-start-line="165" selection-start-column="18" selection-end-line="165" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Pages/search.html">
+        <entry file="file://$PROJECT_DIR$/Pages/organization.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3933">
-              <caret line="171" selection-start-line="171" selection-end-line="171" />
+            <state relative-caret-position="147">
+              <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
               <folding>
-                <element signature="n#style#0;n#a#4;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#1;n#form#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#2;n#form#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#form#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#fieldset#0;n#form#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#form#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#fieldset#0;n#form#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Pages/report.html">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Scripts/organization.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="41" column="94" selection-start-line="41" selection-start-column="94" selection-end-line="41" selection-end-column="94" />
+            <state relative-caret-position="6256">
+              <caret line="272" column="45" selection-start-line="272" selection-start-column="45" selection-end-line="272" selection-end-column="45" />
               <folding>
-                <element signature="n#style#0;n#a#2;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h4#0;n#fieldset#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#fieldset#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -135,9 +127,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>location</find>
-      <find>map.on</find>
-      <find>get-stran</find>
       <find>add-location</find>
       <find>postRespon</find>
       <find>add-respon</find>
@@ -165,6 +154,9 @@
       <find>get-stra</find>
       <find>get-mammals</find>
       <find>send(</find>
+      <find>longitude</find>
+      <find>*</find>
+      <find>alert</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -189,14 +181,14 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/c72b018c-4dac-4de3-b3f3-14b989327e38/console_1.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/c72b018c-4dac-4de3-b3f3-14b989327e38/console.sql" />
         <option value="$PROJECT_DIR$/G23_DMQueries.sql" />
-        <option value="$PROJECT_DIR$/Pages/organization.html" />
         <option value="$PROJECT_DIR$/Pages/search.html" />
-        <option value="$PROJECT_DIR$/Scripts/organization.js" />
         <option value="$PROJECT_DIR$/Scripts/map.js" />
         <option value="$PROJECT_DIR$/Scripts/search.js" />
         <option value="$PROJECT_DIR$/Server/nodeScript.js" />
         <option value="$PROJECT_DIR$/Pages/report.html" />
         <option value="$PROJECT_DIR$/Scripts/strandingReport.js" />
+        <option value="$PROJECT_DIR$/Pages/organization.html" />
+        <option value="$PROJECT_DIR$/Scripts/organization.js" />
       </list>
     </option>
   </component>
@@ -275,8 +267,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.report.html">
+  <component name="RunManager" selected="JavaScript Debug.organization.html">
     <configuration name="map.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/MarineMammalStranding_CS340/Pages/map.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="organization.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MarineMammalStranding_CS340/Pages/organization.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="report.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63344/MarineMammalStranding_CS340/Pages/report.html" useBuiltInWebServerPort="true">
@@ -288,16 +283,13 @@
     <configuration name="nodeScript.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Server/nodeScript.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
-    <configuration name="search.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/Scripts/search.js" working-dir="$PROJECT_DIR$">
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.organization.html" />
         <item itemvalue="JavaScript Debug.report.html" />
         <item itemvalue="JavaScript Debug.search.html" />
         <item itemvalue="Node.js.nodeScript.js" />
         <item itemvalue="JavaScript Debug.map.html" />
-        <item itemvalue="Node.js.search.js" />
       </list>
     </recent_temporary>
   </component>
@@ -328,15 +320,15 @@
       <workItem from="1583373283555" duration="2047000" />
       <workItem from="1583479895864" duration="5442000" />
       <workItem from="1583546998348" duration="166000" />
-      <workItem from="1583564958091" duration="263000" />
+      <workItem from="1583564958091" duration="2119000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127816000" />
+    <option name="totallyTimeSpent" value="129672000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="27" y="26" width="1440" height="838" extended-state="0" />
+    <frame x="0" y="24" width="1440" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -355,11 +347,11 @@
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info active="true" anchor="bottom" id="Database Console" order="12" sideWeight="0.4985694" visible="true" weight="0.32876712" />
+      <window_info anchor="bottom" id="Database Console" order="12" sideWeight="0.4985694" weight="0.32876712" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" weight="0.24606581" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.24606581" />
     </layout>
     <layout-to-restore>
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -598,7 +590,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/Scripts/organization.js</url>
-          <line>227</line>
+          <line>240</line>
           <option name="timeStamp" value="124" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -751,6 +743,12 @@
           <line>397</line>
           <option name="timeStamp" value="176" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/Scripts/strandingReport.js</url>
+          <line>66</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="177" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -815,7 +813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://c72b018c-4dac-4de3-b3f3-14b989327e38/schema/cs340_trompj/table/responders" />
     <entry file="das://c72b018c-4dac-4de3-b3f3-14b989327e38/schema/cs340_trompj/table/locations" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c72b018c-4dac-4de3-b3f3-14b989327e38/console_1.sql">
       <provider selected="true" editor-type-id="text-editor">
@@ -875,18 +872,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Pages/organization.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1334">
-          <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#form#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-207">
@@ -896,16 +881,6 @@
     </entry>
     <entry file="file:///private/var/folders/89/5wbjvplx17d9lzjcrqmwkrnc0000gn/T/fz3temp-2/organization.js" />
     <entry file="file:///private/var/folders/89/5wbjvplx17d9lzjcrqmwkrnc0000gn/T/fz3temp-2/strandingReport.js" />
-    <entry file="file://$PROJECT_DIR$/Scripts/organization.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/map.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -920,16 +895,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3795">
-          <caret line="165" column="18" selection-start-line="165" selection-start-column="18" selection-end-line="165" selection-end-column="18" />
+    <entry file="das://c72b018c-4dac-4de3-b3f3-14b989327e38/schema/cs340_trompj/table/responders">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Pages/search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3933">
+        <state relative-caret-position="3708">
           <caret line="171" selection-start-line="171" selection-end-line="171" />
           <folding>
             <element signature="n#style#0;n#a#4;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -950,10 +925,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="165" column="18" selection-start-line="165" selection-start-column="18" selection-end-line="165" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Pages/report.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="41" column="94" selection-start-line="41" selection-start-column="94" selection-end-line="41" selection-end-column="94" />
+        <state relative-caret-position="230">
+          <caret line="34" column="108" selection-start-line="34" selection-start-column="85" selection-end-line="34" selection-end-column="108" />
           <folding>
             <element signature="n#style#0;n#a#2;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h4#0;n#fieldset#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -962,10 +944,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Pages/organization.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/strandingReport.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+        <state relative-caret-position="329">
+          <caret line="104" selection-start-line="96" selection-end-line="104" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/organization.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6256">
+          <caret line="272" column="45" selection-start-line="272" selection-start-column="45" selection-end-line="272" selection-end-column="45" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

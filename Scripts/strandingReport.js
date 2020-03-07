@@ -49,31 +49,31 @@ function postStranding() {
             && state !== "AL" && state !== "FL" && state !== "GA" && state !== "SC" && state !== "NC" && state !== "VA" && state !== "DC" && state !== "DE"
             && state !== "NJ" && state !== "NY" && state !== "CT" && state !== "RI" && state !== "MA" && state !== "NH" && state !== "ME") {
             document.getElementById("state").style.borderColor = "red";
-            error = true
+            error = true;
         }
 
         let county = document.getElementById('county').value;
         if (county === "" || county == null) {
             document.getElementById("county").style.borderColor = "red";
-            error = true
+            error = true;
         }
 
         let alive = document.getElementById('alive').value;
         if (alive == null) {
             document.getElementById("alive").style.borderColor = "red";
-            error = true
+            error = true;
         }
 
         let longitude = document.getElementById('longitude').value;
         if (longitude < -180 || longitude > 180) {
             document.getElementById('longitude').style.borderColor = "red";
-            error = true
+            error = true;
         }
 
         let latitude = document.getElementById('latitude').value;
         if (latitude < -90 || latitude > 90) {
             document.getElementById('latitude').style.borderColor = "red";
-            error = true
+            error = true;
         }
 
         let mammalNote = document.getElementById('mammalNote').value;
