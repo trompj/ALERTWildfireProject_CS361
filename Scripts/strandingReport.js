@@ -63,7 +63,15 @@ function postStranding() {
         }
 
         let longitude = document.getElementById('longitude').value;
+        if (longitude < -180 && longitude > 180) {
+            document.getElementById('longitude').style.borderColor = "red";
+            error = true
+        }
         let latitude = document.getElementById('latitude').value;
+        if (longitude < -90 && longitude > 90) {
+            document.getElementById('longitude').style.borderColor = "red";
+            error = true
+        }
         let mammalNote = document.getElementById('mammalNote').value;
         let locationNote = document.getElementById('locationNote').value;
 
