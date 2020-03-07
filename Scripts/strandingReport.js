@@ -40,6 +40,8 @@ function postStranding() {
         document.getElementById("state").style.borderColor = "black";
         document.getElementById("county").style.borderColor = "black";
         document.getElementById("alive").style.borderColor = "black";
+        document.getElementById('longitude').style.borderColor = "black";
+        document.getElementById('longitude').style.borderColor = "black";
 
         let city = document.getElementById('city').value;
         let state = document.getElementById('state').value;
@@ -67,11 +69,13 @@ function postStranding() {
             document.getElementById('longitude').style.borderColor = "red";
             error = true
         }
+
         let latitude = document.getElementById('latitude').value;
         if (longitude < -90 && longitude > 90) {
             document.getElementById('longitude').style.borderColor = "red";
             error = true
         }
+
         let mammalNote = document.getElementById('mammalNote').value;
         let locationNote = document.getElementById('locationNote').value;
 
