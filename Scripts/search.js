@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', searchStrandingsPopup);
 document.addEventListener('DOMContentLoaded', postStrandingsResponders);
 
 //Edit row that edit button is in.
-function editStrandingForm() {
+function editStrandingForm(event) {
     //Get the stranding
     let strandingId = document.getElementById("strandingId").value;
 
@@ -36,7 +36,12 @@ function editStrandingForm() {
             let locationId = getResponse[0].location_id;
 
             //Add values to update/edit form and display pop-up form
-            document.getElementById("active-edit").value = getResponse[0].active;
+            if (getResponse[0].active === 1) {
+                document.getElementById("active-edit").checked = true;
+            }
+            else {
+                document.getElementById("active-edit").checked = false;
+            }
             document.getElementById("street1-edit").value = getResponse[0].street1;
             document.getElementById("street2-edit").value = getResponse[0].street2;
             document.getElementById("city-edit").value = getResponse[0].city;
@@ -49,33 +54,70 @@ function editStrandingForm() {
 
             let submitEdit = function (event) {
                 let editRow = new XMLHttpRequest();
+                let error = false;
+
+                document.getElementById("longitude-edit").style.borderColor = "black";
+                document.getElementById("latitude-edit").style.borderColor = "black";
+                document.getElementById("state-edit").style.borderColor = "black";
+                document.getElementById("county-edit").style.borderColor = "black";
 
                 editRow.open("PUT", updateStrandingURL, true);
                 editRow.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-                let postBody = "locationId=" + locationId + "&strandingId=" + strandingId + "&active=" +
-                    document.getElementById("active-edit").value +
-                    "&latitude=" + document.getElementById("latitude-edit").value +
-                    "&longitude=" + document.getElementById("longitude-edit").value +
-                    "&street1=" + document.getElementById("street1-edit").value +
-                    "&street2=" + document.getElementById("street2-edit").value +
-                    "&city=" + document.getElementById("city-edit").value +
-                    "&county=" + document.getElementById("county-edit").value +
-                    "&state=" + document.getElementById("state-edit").value;
+                let active = document.getElementById("active-edit").checked;
+                if (active === false) {
+                    active = 0;
+                }
+                else {
+                    active = 1;
+                }
 
-                editRow.addEventListener('load', function(event) {
-                    if (editRow.status >= 200 && editRow.status < 400) {
-                        //Hide pop-up edit form
-                        document.getElementById("form-edit-overlay").style.display = "none";
-                        document.getElementById("overlay-background").style.display = "none";
+                let longitude = document.getElementById("longitude-edit").value;
+                if (longitude < -180 || longitude > 180) {
+                    document.getElementById("longitude-edit").style.borderColor = "red";
+                    error = true;
+                }
 
-                        document.getElementById("submit-edit").removeEventListener('click', submitEdit);
-                    }
+                let latitude = document.getElementById("latitude-edit").value;
+                if (latitude < -90 || latitude > 90) {
+                    document.getElementById("latitude-edit").style.borderColor = "red";
+                    error = true;
+                }
 
-                    event.preventDefault();
-                });
+                let state = document.getElementById("state-edit").value;
+                if (state === "" || state == null) {
+                    document.getElementById("state-edit").style.borderColor = "red";
+                    error = true;
+                }
 
-                editRow.send(postBody);
+                let county = document.getElementById("county-edit").value;
+                if (county === "" || county == null) {
+                    document.getElementById("county-edit").style.borderColor = "red";
+                    error = true;
+                }
+
+                if (error === false) {
+                    let postBody = "locationId=" + locationId + "&strandingId=" + strandingId + "&active=" +
+                        active + "&latitude=" + latitude + "&longitude=" + longitude +
+                        "&street1=" + document.getElementById("street1-edit").value +
+                        "&street2=" + document.getElementById("street2-edit").value +
+                        "&city=" + document.getElementById("city-edit").value +
+                        "&county=" + county + "&state=" + state;
+
+                    editRow.addEventListener('load', function (event) {
+                        if (editRow.status >= 200 && editRow.status < 400) {
+                            //Hide pop-up edit form
+                            document.getElementById("form-edit-overlay").style.display = "none";
+                            document.getElementById("overlay-background").style.display = "none";
+
+                            document.getElementById("submit-edit").removeEventListener('click', submitEdit);
+                        }
+
+                        event.preventDefault();
+                    });
+
+                    editRow.send(postBody);
+                }
 
                 event.preventDefault();
             };

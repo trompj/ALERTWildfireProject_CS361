@@ -29,7 +29,7 @@
 <form>
     <label>Responder:</label>
     <select id="responders">
-        <option>Select all</option>
+        <option value = "*">Select all</option>
     </select>
     <input type="submit" value="Search" id="searchStrandings" style="width: 9%; color: white; border-radius: 5px; background-color: dodgerblue;">
 </form>
@@ -82,28 +82,28 @@
         <fieldset>
             <h4>Update Stranding</h4>
             <br>
-            <label for="active-edit">Active:</label>
-            <input type="text" name="active-edit" id="active-edit">
+            <label for="active-edit">Active</label>
+            <input type="checkbox" name="active-edit" id="active-edit" value="1" checked>
             <br>
-            <label for="street1-edit">Street1:</label>
+            <label for="street1-edit">Street1</label>
             <input type="text" name="street1-edit" id="street1-edit">
             <br>
-            <label for="street2-edit">Street2:</label>
+            <label for="street2-edit">Street2</label>
             <input type="text" name="street2-edit" id="street2-edit">
             <br>
-            <label for="city-edit">City:</label>
+            <label for="city-edit">City</label>
             <input type="text" name="city-edit" id="city-edit">
             <br>
-            <label for="county-edit">County:</label>
+            <label for="county-edit">County<abbr class="req" style="color:red">*</abbr></label>
             <input type="text" name="county-edit" id="county-edit">
             <br>
-            <label for="state-edit">State:</label>
+            <label for="state-edit">State<abbr class="req" style="color:red">*</abbr></label>
             <input type="text" name="state-edit" id="state-edit">
             <br>
-            <label for="latitude-edit">Latitude:</label>
+            <label for="latitude-edit">Latitude [-90:90]</label>
             <input type="text" name="latitude-edit" id="latitude-edit">
             <br>
-            <label for="longitude-edit">Longitude:</label>
+            <label for="longitude-edit">Longitude [-180:180]</label>
             <input type="text" name="longitude-edit" id="longitude-edit">
             <br>
             <input type="submit" id="submit-edit">
