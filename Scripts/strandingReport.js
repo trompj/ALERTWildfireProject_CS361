@@ -65,14 +65,14 @@ function postStranding() {
         }
 
         let longitude = document.getElementById('longitude').value;
-        if (longitude < -180 && longitude > 180) {
+        if (longitude < -180 || longitude > 180) {
             document.getElementById('longitude').style.borderColor = "red";
             error = true
         }
 
         let latitude = document.getElementById('latitude').value;
-        if (longitude < -90 && longitude > 90) {
-            document.getElementById('longitude').style.borderColor = "red";
+        if (latitude < -90 || latitude > 90) {
+            document.getElementById('latitude').style.borderColor = "red";
             error = true
         }
 
