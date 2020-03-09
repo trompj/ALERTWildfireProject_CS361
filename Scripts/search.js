@@ -1,16 +1,16 @@
 let getStrandingURL = "http://localhost:39999/get-stranding";
-// let updateStrandingURL = "http://localhost:39999/put-stranding";
+let updateStrandingURL = "http://localhost:39999/put-stranding";
 let addMammalURL = "http://localhost:39999/add-mammal";
 let searchMammalsURL = "http://localhost:39999/get-mammals";
-// let strandingsRespondersURL = "http://localhost:39999/get-strandings-responders";
-// let serverURL = "http://localhost:39999/";
+let strandingsRespondersURL = "http://localhost:39999/get-strandings-responders";
+let serverURL = "http://localhost:39999/";
 
 //let getStrandingURL = "http://flip1.engr.oregonstate.edu:39999/get-stranding";
-let updateStrandingURL = "http://flip1.engr.oregonstate.edu:39999/put-stranding";
+// let updateStrandingURL = "http://flip1.engr.oregonstate.edu:39999/put-stranding";
 //let addMammalURL = "http://flip1.engr.oregonstate.edu:39999/add-mammal";
 //let searchMammalsURL = "http://flip1.engr.oregonstate.edu:39999/get-mammals";
-let strandingsRespondersURL = "http://flip1.engr.oregonstate.edu:39999/get-strandings-responders";
-let serverURL = "http://flip1.engr.oregonstate.edu:39999/";
+// let strandingsRespondersURL = "http://flip1.engr.oregonstate.edu:39999/get-strandings-responders";
+//let serverURL = "http://flip1.engr.oregonstate.edu:39999/";
 
 document.getElementById('update-stranding').addEventListener('click', editStrandingForm);
 document.getElementById('add-mammal').addEventListener('click', addMammalForm);
@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', populateDropdown);
 document.addEventListener('DOMContentLoaded', searchMammalsPopup);
 document.addEventListener('DOMContentLoaded', searchStrandingsPopup);
 document.addEventListener('DOMContentLoaded', postStrandingsResponders);
+document.getElementById('removeResponder').addEventListener('click', removeResponder);
 
 //Edit row that edit button is in.
 function editStrandingForm(event) {
@@ -313,6 +314,14 @@ function searchStrandingsPopup(event) {
                         document.getElementById("overlay-background").style.display = "none";
                     })
                 }
+
+                //If no rows are present, allow close button to work without deleting rows
+                if (getResponse.length === 0) {
+                    document.getElementById("closeStrandings").addEventListener('click', function(event) {
+                        document.getElementById("strandings-responders-overlay").style.display = "none";
+                        document.getElementById("overlay-background").style.display = "none";
+                    });
+                }
             }
             else {
                 console.log("Error in network request: " + getStrandings.statusText);
@@ -379,4 +388,26 @@ function populateDropdown(event) {
     getResponders.send();
 
     event.preventDefault();
+}
+
+function removeResponder(event) {
+    let removeResponderURL = serverURL + "delete-responder";
+    let deleteRow = new XMLHttpRequest();
+
+    deleteRow.open("DELETE", removeResponderURL, true);
+    deleteRow.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    let body = "strandingId" + document.getElementById('strandingIdInput').value + "&responderId=" +
+        document.getElementById("strandings").value;
+
+    deleteRow.addEventListener('load', function() {
+        if (deleteRow.status >= 200 && deleteRow.status < 400) {
+            alert("Responder " + " removed");
+        }
+        else {
+            alert("Unable to remove responder from stranding. Responder may not be associated with stranding.");
+        }
+    });
+
+    deleteRow.send(body);
 }
