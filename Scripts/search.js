@@ -391,7 +391,7 @@ function populateDropdown(event) {
 }
 
 function removeResponder(event) {
-    let removeResponderURL = serverURL + "delete-responder";
+    let removeResponderURL = serverURL + "remove-responder-stranding";
     let deleteRow = new XMLHttpRequest();
 
     deleteRow.open("DELETE", removeResponderURL, true);

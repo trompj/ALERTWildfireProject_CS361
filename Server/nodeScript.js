@@ -315,6 +315,19 @@ application.delete('/delete-responder', function (request, response, next) {
     });
 });
 
+//Remove a responder from a stranding
+application.delete('/remove-responder-stranding', function (request, response, next) {
+
+    pool.query("DELETE FROM strandings_responders WHERE responder_id=?", [request.body.responderId], function(error, result){
+        if(error){
+            next(error);
+            return;
+        }
+
+        response.status(200).send();
+    });
+});
+
 //Insert location row with FK ID for stranding
 application.post('/add-responder-location', function(request, response, next) {
     let street1 = request.body.street1;
