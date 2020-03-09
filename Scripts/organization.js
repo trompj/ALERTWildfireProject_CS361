@@ -138,13 +138,31 @@ function editForm(hiddenInput, hiddenResponderId) {
     document.getElementById("state-edit").value = stateVal;
     document.getElementById("form-edit-overlay").style.display = "block";
     document.getElementById("overlay-background").style.display = "block";
+
     let submitEdit = function (event) {
         let error = false;
+        document.getElementById("first-name-edit").style.borderColor = "black";
+        document.getElementById("last-name-edit").style.borderColor = "black";
+        document.getElementById("county-edit").style.borderColor = "black";
+        document.getElementById("state-edit").style.borderColor = "black";
 
         if (document.getElementById("first-name-edit").value === "") {
             document.getElementById("first-name-edit").style.borderColor = "red";
             error = true;
         }
+        if (document.getElementById("last-name-edit").value === "") {
+            document.getElementById("last-name-edit").style.borderColor = "red";
+            error = true;
+        }
+        if (document.getElementById("county-edit").value === "") {
+            document.getElementById("county-edit").style.borderColor = "red";
+            error = true;
+        }
+        if (document.getElementById("state-edit").value === "") {
+            document.getElementById("state-edit").style.borderColor = "red";
+            error = true;
+        }
+
         if (error !== true) {
             let editRow = new XMLHttpRequest();
             editRow.open("PUT", responderPutURL, true);
