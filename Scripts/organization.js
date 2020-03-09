@@ -1,7 +1,6 @@
 let responderURL = "http://localhost:39999/get-responders";
 // let responderInsertURL = "http://localhost:39999/add-responder-location";
 let responderPutURL = "http://localhost:39999/put-responders";
-let deleteResponder = "http://localhost:39999/delete-responder";
 let serverURL = "http://localhost:39999/";
 
 //let responderURL = "http://flip1.engr.oregonstate.edu:39999/get-responders";
@@ -205,6 +204,7 @@ function editForm(hiddenInput, hiddenResponderId) {
 //Delete row that delete button is in.
 function deleteResponderRow(hiddenInput, hiddenResponderId) {
     let deleteRow = new XMLHttpRequest();
+    let deleteResponder = serverURL + "delete-responder";
 
     deleteRow.open("DELETE", deleteResponder, true);
     deleteRow.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

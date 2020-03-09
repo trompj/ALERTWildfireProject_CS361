@@ -302,10 +302,12 @@ application.put('/put-stranding', function(request, response, next) {
     });
 });
 
-//Delete a responder and their location from database
+//Delete a responder or stranding from database by removing location, which cascade deletes all references.
+//Since responder and stranding can only be associated with one location and must have a location, the location
+//ID is unique for each entity.
 application.delete('/delete-responder', function (request, response, next) {
 
-    pool.query("DELETE FROM responders WHERE responder_id=?", [request.body.responderId], function(error, result){
+    pool.query("DELETE FROM locations WHERE location_id=?", [request.body.locationId], function(error, result){
         if(error){
             next(error);
             return;
