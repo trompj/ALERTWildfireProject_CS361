@@ -204,14 +204,13 @@ function editForm(hiddenInput, hiddenResponderId) {
 //Delete row that delete button is in.
 function deleteResponderRow(hiddenInput, hiddenResponderId) {
     let deleteRow = new XMLHttpRequest();
-    let deleteResponder = serverURL + "delete-responder";
+    let deleteResponder = serverURL + "delete-location";
 
     deleteRow.open("DELETE", deleteResponder, true);
     deleteRow.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     let locationIdVal = hiddenInput.value;
-    let responderIdVal = hiddenResponderId.value;
-    let postBody = "locationId=" + locationIdVal + "&responderId=" + responderIdVal;
+    let postBody = "locationId=" + locationIdVal;
 
     deleteRow.addEventListener('load', function() {
         if (deleteRow.status >= 200 && deleteRow.status < 400) {
