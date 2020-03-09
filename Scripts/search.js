@@ -161,9 +161,23 @@ function addMammalForm(event) {
                 //Add values to update/edit form and display pop-up form
                 let length = document.getElementById("length-edit").value;
                 let sex = document.getElementById("sex-edit").value;
-                let rehabilitated = document.getElementById("rehabilitated-edit").value;
-                let alive = document.getElementById("alive-edit").value;
+                let rehabilitated = document.getElementById("rehabilitated-edit").checked;
+                let alive = document.getElementById("alive-edit").checked;
                 let note = document.getElementById("note-edit").value;
+
+                if (rehabilitated === true) {
+                    rehabilitated = 1;
+                }
+                else {
+                    rehabilitated = 0;
+                }
+
+                if (alive === true) {
+                    alive = 1;
+                }
+                else {
+                    alive = 0;
+                }
 
                 let postBody = "strandingId=" + strandingId + "&length=" + length + "&sex=" +
                     sex + "&rehabilitated=" + rehabilitated + "&alive=" + alive +

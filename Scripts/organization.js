@@ -120,7 +120,6 @@ function editForm(hiddenInput, hiddenResponderId) {
     let countyNode = cityNode.nextSibling;
     let stateNode = countyNode.nextSibling;
 
-
     //Get value of nodes
     let responderIdVal = hiddenResponderId.value;
     let locationIdVal = hiddenInput.value;
@@ -157,7 +156,7 @@ function editForm(hiddenInput, hiddenResponderId) {
             document.getElementById("county-edit").value + "&state=" +
             document.getElementById("state-edit").value;
 
-        editRow.addEventListener('load', function(event) {
+        editRow.addEventListener('load', function (event) {
             if (editRow.status >= 200 && editRow.status < 400) {
                 let editResponse = JSON.parse(editRow.responseText);
 
