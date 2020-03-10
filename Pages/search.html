@@ -28,9 +28,7 @@
 <br><h3>Show strandings associated with responder (drop down dynamically populated from responders table)</h3>
 <form>
     <label>Responder:</label>
-    <select id="responders">
-        <option value = "*">Select all</option>
-    </select>
+    <select id="responders"></select>
     <input type="submit" value="Search" id="searchStrandings" style="width: 9%; color: white; border-radius: 5px; background-color: dodgerblue;">
 </form>
 
@@ -67,9 +65,7 @@
 <h3>Add or Remove Responder from a Stranding (drop down dynamically populated from responders table)</h3>
 <form>
     <label>Responder:</label>
-    <select id="strandings">
-        <option value="id">Select all</option>
-    </select><br>
+    <select id="strandings"></select><br>
     <label>Stranding ID: </label>
     <input type="text" id="strandingIdInput" class="strandingMammalId" placeholder="e.g. 3458">
     <input type="submit" value="Add Responder" id="addResponder" style="width: 9%; color: white; border-radius: 5px; background-color: dodgerblue;">

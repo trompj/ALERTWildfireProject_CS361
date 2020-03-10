@@ -1,12 +1,12 @@
-let responderURL = "http://localhost:39999/get-responders";
+//let responderURL = "http://localhost:39999/get-responders";
 // let responderInsertURL = "http://localhost:39999/add-responder-location";
-let responderPutURL = "http://localhost:39999/put-responders";
-let serverURL = "http://localhost:39999/";
+//let responderPutURL = "http://localhost:39999/put-responders";
+//let serverURL = "http://localhost:39999/";
 
-//let responderURL = "http://flip1.engr.oregonstate.edu:39999/get-responders";
-//let responderPutURL = "http://flip1.engr.oregonstate.edu:39999/put-responders";
-//let deleteResponder = "http://flip1.engr.oregonstate.edu:39999/delete-responder";
-//let serverURL = "http://flip1.engr.oregonstate.edu:39999/";
+let responderURL = "http://flip1.engr.oregonstate.edu:39999/get-responders";
+let responderPutURL = "http://flip1.engr.oregonstate.edu:39999/put-responders";
+let deleteResponder = "http://flip1.engr.oregonstate.edu:39999/delete-responder";
+let serverURL = "http://flip1.engr.oregonstate.edu:39999/";
 
 document.addEventListener('DOMContentLoaded', fillResponderTable);
 document.addEventListener('DOMContentLoaded', postResponder);
@@ -157,7 +157,11 @@ function editForm(hiddenInput, hiddenResponderId) {
             document.getElementById("county-edit").style.borderColor = "red";
             error = true;
         }
-        if (document.getElementById("state-edit").value === "") {
+
+        let state = document.getElementById("state-edit").value;
+        if (state !== "WA" && state !== "OR" && state !== "CA" && state !== "TX" && state !== "LA" && state !== "MS"
+            && state !== "AL" && state !== "FL" && state !== "GA" && state !== "SC" && state !== "NC" && state !== "VA" && state !== "DC" && state !== "DE"
+            && state !== "NJ" && state !== "NY" && state !== "CT" && state !== "RI" && state !== "MA" && state !== "NH" && state !== "ME") {
             document.getElementById("state-edit").style.borderColor = "red";
             error = true;
         }
@@ -260,7 +264,9 @@ function postResponder() {
         let city = document.getElementById('city').value;
 
         let state = document.getElementById('state').value;
-        if (state === "") {
+        if (state !== "WA" && state !== "OR" && state !== "CA" && state !== "TX" && state !== "LA" && state !== "MS"
+            && state !== "AL" && state !== "FL" && state !== "GA" && state !== "SC" && state !== "NC" && state !== "VA" && state !== "DC" && state !== "DE"
+            && state !== "NJ" && state !== "NY" && state !== "CT" && state !== "RI" && state !== "MA" && state !== "NH" && state !== "ME") {
             document.getElementById("state").style.borderColor = "red";
             error = true;
         }
