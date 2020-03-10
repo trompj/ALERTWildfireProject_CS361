@@ -56,7 +56,7 @@
 
 <h3>Show Mammals Associated With Stranding</h3>
 <form>
-    <label>Stranding ID: </label>
+    <label>Stranding ID (enter "ALL" for all mammals, regardless of stranding): </label>
     <input type="text" name="strandingId" id="strandingMammalId" placeholder="e.g. 3458">
     <input type="submit" value="Search" id="findStranding" style="width: 9%; color: white; border-radius: 5px; background-color: dodgerblue;">
 </form>
@@ -77,7 +77,7 @@
 
 <div id="overlay-background" style="display: none; position: absolute; height: 100%; width: 100%; background-color: grey; top: 0; left: 0; opacity: .5"></div>
 
-<div id="form-edit-overlay" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%">
+<div class="popup" id="form-edit-overlay" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%">
     <form style="background-color: white">
         <fieldset>
             <h4>Update Stranding</h4>
@@ -111,7 +111,7 @@
     </form>
 </div>
 
-<div id="mammal-form-edit-overlay" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%">
+<div class="popup" id="mammal-form-edit-overlay" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%">
     <form style="background-color: white">
         <fieldset>
             <h4>Add Mammal</h4>
@@ -136,7 +136,7 @@
     </form>
 </div>
 
-<div id="search-mammal-overlay" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%">
+<div class="popup" id="search-mammal-overlay" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%">
     <form style="background-color: white">
         <fieldset>
             <table>
@@ -156,7 +156,7 @@
     </form>
 </div>
 
-<div id="strandings-responders-overlay" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%">
+<div class="popup" id="strandings-responders-overlay" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50%">
     <form style="background-color: white">
         <fieldset>
             <table>

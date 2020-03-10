@@ -1,7 +1,6 @@
 let getStrandingURL = "http://localhost:39999/get-stranding";
 let updateStrandingURL = "http://localhost:39999/put-stranding";
 let addMammalURL = "http://localhost:39999/add-mammal";
-let searchMammalsURL = "http://localhost:39999/get-mammals";
 let strandingsRespondersURL = "http://localhost:39999/get-strandings-responders";
 let serverURL = "http://localhost:39999/";
 
@@ -206,7 +205,7 @@ function searchMammalsPopup(event) {
 
         let getMammals = new XMLHttpRequest();
 
-        let URL = searchMammalsURL + "?strandingId=" + strandingId;
+        let URL = serverURL + "get-mammals" + "?strandingId=" + strandingId;
         getMammals.open("GET", URL, true);
         getMammals.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 

@@ -398,22 +398,40 @@ application.get('/get-responders-names', function(request, response, next) {
 
 //Get all mammals associated with a stranding ID
 application.get('/get-mammals', function(request, response, next) {
-    pool.query("SELECT * FROM mammals WHERE stranding_id=?", [request.query.strandingId], function (error, rows) {
+    if (request.query.strandingId === "ALL") {
+        pool.query("SELECT * FROM mammals",function (error, rows) {
 
-        if (error) {
-            next(error);
-            response.status(400).send();
-            return;
-        }
+            if (error) {
+                next(error);
+                response.status(400).send();
+                return;
+            }
 
-        if (rows.length === 0) {
-            response.status(400).send();
-        }
-        else {
-            response.status(200).send(rows);
-        }
+            if (rows.length === 0) {
+                response.status(400).send();
+            } else {
+                response.status(200).send(rows);
+            }
 
-    });
+        });
+    }
+    else {
+        pool.query("SELECT * FROM mammals WHERE stranding_id=?", [request.query.strandingId], function (error, rows) {
+
+            if (error) {
+                next(error);
+                response.status(400).send();
+                return;
+            }
+
+            if (rows.length === 0) {
+                response.status(400).send();
+            } else {
+                response.status(200).send(rows);
+            }
+
+        });
+    }
 });
 
 //Get all strandings responders associated with a responder ID

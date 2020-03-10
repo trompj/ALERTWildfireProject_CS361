@@ -173,3 +173,8 @@ input, textarea {
     cursor: pointer;
 }
 
+.popup {
+    overflow-y: auto;
+    overflow-x: auto;
+    height: 500px;
+}
