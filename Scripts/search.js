@@ -411,12 +411,12 @@ function removeResponder(event) {
     deleteRow.open("DELETE", removeResponderURL, true);
     deleteRow.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-    let body = "strandingId" + document.getElementById('strandingIdInput').value + "&responderId=" +
+    let body = "strandingId=" + document.getElementById('strandingIdInput').value + "&responderId=" +
         document.getElementById("strandings").value;
 
     deleteRow.addEventListener('load', function() {
         if (deleteRow.status >= 200 && deleteRow.status < 400) {
-            alert("Responder " + " removed");
+            alert("Responder " + document.getElementById("strandings").value + " removed");
         }
         else {
             alert("Unable to remove responder from stranding. Responder may not be associated with stranding.");
@@ -433,11 +433,11 @@ function removeStranding(event) {
     deleteRow.open("DELETE", removeStrandingURL, true);
     deleteRow.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-    let body = "strandingId" + document.getElementById('strandingId').value;
+    let body = "strandingId=" + document.getElementById('strandingId').value;
 
     deleteRow.addEventListener('load', function() {
         if (deleteRow.status >= 200 && deleteRow.status < 400) {
-            alert("Stranding " + " removed");
+            alert("Stranding " + document.getElementById('strandingId').value + " removed");
         }
         else {
             alert("Unable to remove stranding. Stranding may not exist.");
@@ -445,4 +445,6 @@ function removeStranding(event) {
     });
 
     deleteRow.send(body);
+
+    event.preventDefault();
 }
