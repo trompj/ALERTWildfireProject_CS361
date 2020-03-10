@@ -448,8 +448,7 @@ application.get('/get-strandings-responders', function(request, response, next) 
 });
 
 application.delete('/delete-stranding', function (request, response, next) {
-
-    pool.query("DELETE FROM locations WHERE location_id=?", ["SELECT location_id FROM strandings WHERE stranding_id=?", [request.query.strandingId]], function(error, result){
+    pool.query("DELETE FROM locations WHERE location_id=?", ["SELECT location_id FROM strandings WHERE stranding_id=?", [request.query.strandingId]], function(error){
         if(error){
             next(error);
             return;
