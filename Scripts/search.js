@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', searchMammalsPopup);
 document.addEventListener('DOMContentLoaded', searchStrandingsPopup);
 document.addEventListener('DOMContentLoaded', postStrandingsResponders);
 document.getElementById('removeResponder').addEventListener('click', removeResponder);
+document.getElementById('removeStranding').addEventListener('click', removeStranding);
 
 //Edit row that edit button is in.
 function editStrandingForm(event) {
@@ -161,9 +162,23 @@ function addMammalForm(event) {
                 //Add values to update/edit form and display pop-up form
                 let length = document.getElementById("length-edit").value;
                 let sex = document.getElementById("sex-edit").value;
-                let rehabilitated = document.getElementById("rehabilitated-edit").value;
-                let alive = document.getElementById("alive-edit").value;
+                let rehabilitated = document.getElementById("rehabilitated-edit").checked;
+                let alive = document.getElementById("alive-edit").checked;
                 let note = document.getElementById("note-edit").value;
+
+                if (rehabilitated === true) {
+                    rehabilitated = 1;
+                }
+                else {
+                    rehabilitated = 0;
+                }
+
+                if (alive === true) {
+                    alive = 1;
+                }
+                else {
+                    alive = 0;
+                }
 
                 let postBody = "strandingId=" + strandingId + "&length=" + length + "&sex=" +
                     sex + "&rehabilitated=" + rehabilitated + "&alive=" + alive +
@@ -405,6 +420,27 @@ function removeResponder(event) {
         }
         else {
             alert("Unable to remove responder from stranding. Responder may not be associated with stranding.");
+        }
+    });
+
+    deleteRow.send(body);
+}
+
+function removeStranding(event) {
+    let removeStrandingURL = serverURL + "delete-stranding";
+    let deleteRow = new XMLHttpRequest();
+
+    deleteRow.open("DELETE", removeStrandingURL, true);
+    deleteRow.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    let body = "strandingId" + document.getElementById('strandingId').value;
+
+    deleteRow.addEventListener('load', function() {
+        if (deleteRow.status >= 200 && deleteRow.status < 400) {
+            alert("Stranding " + " removed");
+        }
+        else {
+            alert("Unable to remove stranding. Stranding may not exist.");
         }
     });
 

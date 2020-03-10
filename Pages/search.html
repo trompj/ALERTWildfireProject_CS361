@@ -41,6 +41,7 @@
     <label>Stranding ID: </label>
     <input type="text" name="strandingId" id="strandingId" placeholder="e.g. 3458">
     <input type="submit" value="Edit" id="update-stranding" style="width: 7%; color: white; border-radius: 5px; background-color: dodgerblue;">
+    <input type="submit" value="Remove Stranding" id="removeStranding" style="width: 9%; color: white; border-radius: 5px; background-color: dodgerblue;">
 </form>
 
 <br>
@@ -122,11 +123,11 @@
             <label for="sex-edit">Sex:</label>
             <input type="text" name="sex-edit" id="sex-edit">
             <br>
-            <label for="rehabilitated-edit">Rehabilitated:</label>
-            <input type="text" name="rehabilitated-edit" id="rehabilitated-edit">
+            <input type="checkbox" name="rehabilitated-edit" id="rehabilitated-edit" value="1">
+            <label for="rehabilitated-edit">Rehabilitated</label>
             <br>
-            <label for="alive-edit">Alive:</label>
-            <input type="text" name="alive-edit" id="alive-edit">
+            <input type="checkbox" name="alive-edit" id="alive-edit" value="1">
+            <label for="alive-edit">Alive</label>
             <br>
             <label for="note-edit">Note:</label>
             <input type="text" name="note-edit" id="note-edit">

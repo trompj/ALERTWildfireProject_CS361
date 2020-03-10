@@ -446,3 +446,15 @@ application.get('/get-strandings-responders', function(request, response, next) 
         response.status(200).send(rows);
     });
 });
+
+application.delete('/delete-stranding', function (request, response, next) {
+
+    pool.query("DELETE FROM locations WHERE location_id=?", ["SELECT location_id FROM strandings WHERE stranding_id=?", [request.query.strandingId]], function(error, result){
+        if(error){
+            next(error);
+            return;
+        }
+
+        response.status(200).send();
+    });
+});
