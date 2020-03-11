@@ -78,6 +78,7 @@ nav {
     float: right;
     height: 100%;
     text-align: center;
+    margin-top: 2%;
 }
 
 nav a {
@@ -177,4 +178,20 @@ input, textarea {
     overflow-y: auto;
     overflow-x: auto;
     height: 500px;
+}
+
+.street {
+    min-width: 125px;
+}
+
+.name, .county, .city {
+    min-width: 100px;
+}
+
+.state {
+    min-width: 20px;
+}
+
+.logo {
+    width: 9%;
 }
