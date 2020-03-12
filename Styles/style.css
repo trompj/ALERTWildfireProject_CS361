@@ -114,10 +114,6 @@ nav a:hover {
     width: 80%
 }
 
-#city, #state, #county {
-    width: 45%
-}
-
 div.wrap-container {
     width: 100%;
     text-align: left;
