@@ -416,7 +416,7 @@ function removeResponder(event) {
 
     deleteRow.addEventListener('load', function() {
         if (deleteRow.status >= 200 && deleteRow.status < 400) {
-            alert("Responder " + document.getElementById("strandings").value + " removed");
+            alert("Responder " + document.getElementById("strandings").value + " removed from stranding if exists.");
         }
         else {
             alert("Unable to remove responder from stranding. Responder may not be associated with stranding.");

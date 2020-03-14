@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19929e3c-db09-482e-973e-80a4f5ee3eaa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/map.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/organization.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/organization.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/search.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -63,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Scripts/search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="11" column="57" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
+            <state relative-caret-position="189">
+              <caret line="419" column="9" lean-forward="true" selection-start-line="419" selection-start-column="9" selection-end-line="419" selection-end-column="9" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -75,7 +72,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/nodeScript.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
+            <state relative-caret-position="-3083">
               <caret line="320" column="28" selection-start-line="320" selection-start-column="21" selection-end-line="320" selection-end-column="28" />
             </state>
           </provider>
@@ -131,9 +128,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>DELETE</find>
-      <find>closeStrandings</find>
-      <find>edit</find>
       <find>editForm</find>
       <find>submitEdit</find>
       <find>add-res</find>
@@ -160,6 +154,9 @@
       <find>nav</find>
       <find>get-stran</find>
       <find>png</find>
+      <find>removed</find>
+      <find>removed</find>
+      <find>row.</find>
       <find>remove-</find>
     </findStrings>
   </component>
@@ -328,15 +325,16 @@
       <workItem from="1583564958091" duration="9817000" />
       <workItem from="1584061891428" duration="747000" />
       <workItem from="1584062701990" duration="814000" />
-      <workItem from="1584125965361" duration="1169000" />
+      <workItem from="1584125965361" duration="1749000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149545000" />
+    <option name="totallyTimeSpent" value="150125000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="133" y="135" width="1440" height="838" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
@@ -1011,6 +1009,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="39" column="41" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Pages/search.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -1041,22 +1046,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Server/nodeScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
+        <state relative-caret-position="-3083">
           <caret line="320" column="28" selection-start-line="320" selection-start-column="21" selection-end-line="320" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="39" column="41" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="57" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
+        <state relative-caret-position="189">
+          <caret line="419" column="9" lean-forward="true" selection-start-line="419" selection-start-column="9" selection-end-line="419" selection-end-column="9" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
