@@ -1,7 +1,7 @@
-//let responderURL = "http://localhost:39999/get-responders";
+// let responderURL = "http://localhost:39999/get-responders";
 // let responderInsertURL = "http://localhost:39999/add-responder-location";
-//let responderPutURL = "http://localhost:39999/put-responders";
-//let serverURL = "http://localhost:39999/";
+// let responderPutURL = "http://localhost:39999/put-responders";
+// let serverURL = "http://localhost:39999/";
 
 let responderURL = "http://flip1.engr.oregonstate.edu:39999/get-responders";
 let responderPutURL = "http://flip1.engr.oregonstate.edu:39999/put-responders";

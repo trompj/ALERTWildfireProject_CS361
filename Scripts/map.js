@@ -1,4 +1,5 @@
 //API DOC REFERENCE USED: https://docs.mapbox.com/mapbox-gl-js/example/set-popup/
+
 //let mapGetURL = "http://localhost:39999/get-stranding-locations";
 let mapGetURL = "http://flip1.engr.oregonstate.edu:39999/get-stranding-locations";
 
@@ -38,6 +39,7 @@ map.on('load', function(event) {
                     //Create a popup
                     let strandingPopup = new mapboxgl.Popup({offset: 25}).setHTML (
                         "<p>"+
+                        "Stranding ID: " + getResponse[idx].stranding_id + "<br>" +
                         "Stranding Active: " + getResponse[idx].active + "<br>" +
                         "City: " + getResponse[idx].city + "<br>" +
                         "County: " + getResponse[idx].county + "<br>" +

@@ -1,7 +1,7 @@
-//let getStrandingURL = "http://localhost:39999/get-stranding";
-//let updateStrandingURL = "http://localhost:39999/put-stranding";
-//let addMammalURL = "http://localhost:39999/add-mammal";
-//let strandingsRespondersURL = "http://localhost:39999/get-strandings-responders";
+// let getStrandingURL = "http://localhost:39999/get-stranding";
+// let updateStrandingURL = "http://localhost:39999/put-stranding";
+// let addMammalURL = "http://localhost:39999/add-mammal";
+// let strandingsRespondersURL = "http://localhost:39999/get-strandings-responders";
 //let serverURL = "http://localhost:39999/";
 
 let getStrandingURL = "http://flip1.engr.oregonstate.edu:39999/get-stranding";
@@ -424,6 +424,8 @@ function removeResponder(event) {
     });
 
     deleteRow.send(body);
+
+    event.preventDefault();
 }
 
 function removeStranding(event) {
